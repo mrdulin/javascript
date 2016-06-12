@@ -80,6 +80,6 @@ const valueMap = getValueMap(feedbackTypes, internalUrls);
 
 console.dir(JSON.stringify(valueMap),'\n');
 
-const url = valueMap['p'];
+const url = valueMap['p'] || 'defaultUrl';
 
 console.log(`${url}\n`);
