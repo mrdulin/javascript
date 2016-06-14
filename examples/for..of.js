@@ -42,3 +42,21 @@ for(let name of names) {
         break;
     }
 }
+
+
+function init(initNum) {
+    return {plus: function(pn) {
+        return {minus: function(mn) {
+            return initNum + pn - mn;
+        }}
+    }}
+}
+
+
+var a = init(5).plus(3).minus(6);
+
+const init = initNum => ({plus: (pn) => ({minus: (mn) => {
+  return initNum + pn - mn;
+}})});
+
+let b = init(5).plus(3).minus(6);
