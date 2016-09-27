@@ -1,3 +1,4 @@
+"use strict";
 function factorial1(n) {
   if (n === 1) return 1;
   return n * factorial1(n - 1);
