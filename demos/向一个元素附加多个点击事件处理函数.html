@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>向一个元素附加多个点击事件处理函数</title>
+</head>
+<body>
+<p id="param">向一个元素附加多个点击事件处理函数</p>
+<script>
+    document.onreadystatechange = function() {
+        if(document.readyState === 'interactive') {
+            init();
+        }
+    };
+
+    function init() {
+        var p = document.getElementById('param');
+
+        p.onclick = function () {
+            console.log(this, arguments);
+            clickHandler1.apply(this, arguments);
+            clickHandler2.apply(this, arguments);
+        };
+
+        function clickHandler1(e) {
+            console.log(this);
+        }
+
+        function clickHandler2(e) {
+            console.log(this);
+        }
+    }
+</script>
+</body>
+</html>

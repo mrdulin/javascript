@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Functional-sequence-and-compose</title>
+</head>
+<body>
+    <input type="text" value='1.2'>
+    <input type="text" value='2.8'>
+    <input type="text" value='3.0'>
+    <script>
+        window.onload = init;
+        ;void function(global) {
+            var Functional = global.Functional || {};
+            
+            Functional.sequence = function(a, b) {
+                return function(c) {
+                    return b(a(c));
+                }
+            }
+
+            Functional.compose = function(a, b) {
+                return function(c) {
+                    return a(b(c));
+                }
+            }   
+
+            global.Functional = Functional;
+            
+        }(this || window);
+
+        function get(key) {
+            return function(object) { return object[key] }; 
+        }
+
+        var slice = Array.prototype.slice;
+
+        function init() {
+            
+            var inputs = slice.call(document.querySelectorAll('input'), 0);
+
+            var values = inputs.map(
+                Functional.sequence(
+                    get('value'),
+                    parseFloat
+                )
+            )
+
+            console.log(values);
+            
+        }
+    </script>
+</body>
+</html>

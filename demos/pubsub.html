@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pubsub</title>
+</head>
+<body>
+
+    <button id='btn' type="button">click me!</button>
+    <script>
+        ;void function(global) {
+            var Pubsub = global.Pubsub || {};
+            var slice = Array.prototype.slice;
+
+            Pubsub.eventHandlerMap = {};
+
+            Pubsub.on = function(event, callback) {
+                var handlers, self = this;
+                if(self.eventHandlerMap[event]) {
+                    handlers = self.eventHandlerMap[event];
+                } else {
+                    handlers = self.eventHandlerMap[event] = [];
+                }
+                if(typeof callback !== 'function') {
+                    throw new TypeError('callback is not a function');
+                }
+                handlers.push(callback);
+                return self;
+            }
+
+            Pubsub.trigger = function(event) {
+                var handlers = Pubsub.eventHandlerMap[event], self = this;
+                var args = slice.call(arguments, 1);
+                if(handlers) {
+                    var len = handlers.length;
+                    for(var i = 0; i < len; i++) {
+                        handlers[i].apply(null, args);
+                    }
+                }
+                return self;
+            }
+
+            global.Pubsub = Pubsub; 
+        }(this);
+
+        window.onload = init;
+
+        function init() {
+            var btn = document.getElementById('btn');
+            btn.onclick = function(e) {
+                Pubsub.trigger('changeBgColor', {
+                    color: 'red'
+                });
+            }
+            Pubsub.on('changeBgColor', changeBgColor);
+
+            function changeBgColor(data) {
+                console.log(this);
+                document.body.style.backgroundColor = data.color || 'green';
+            }
+        }
+    </script>
+</body>
+</html>

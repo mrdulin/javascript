@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #dragme{
+            width: 50px;
+            height: 50px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<div id="dragme" draggable="true">Drag me!</div>
+<script>
+    document.onreadystatechange = function () {
+        if (document.readyState == "interactive") {
+            init();
+        }
+    };
+
+    function init() {
+        var doc = document;
+        var el = doc.getElementById('dragme');
+        el.addEventListener('dragstart', function(e) {
+            var dataTransfer = e.dataTransfer;
+            var img = new Image();
+            img.src = '1.jpg';
+            dataTransfer.effectAllowed = 'move';
+            dataTransfer.setData('text/plain', this.textContent);
+            dataTransfer.setData('text/html', this.innerHTML);
+            dataTransfer.setDragImage(img, 10, 10);
+        });
+    }
+</script>
+</body>
+</html>
