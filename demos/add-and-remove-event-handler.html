@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add-and-remove-event-handler</title>
+</head>
+<body>
+    <button id='btn'>click me!</button>
+    <button id='btn2'>click me too!</button>
+
+    <button id="cancel">remove handler</button>
+    <script>
+        window.onload = init;
+
+        ;void function(global) {
+            global.addHandler = function(target, eventType, handler) {
+
+                global.addHandler = window.addEventListener ?
+                function(t, e, cb) {
+                    console.log('addEventListener')
+                    t.addEventListener(e, cb, false);
+                } : 
+                function(t, e, cb) {
+                    t.attachEvent('on' + e, cb);
+                }
+
+                return global.addHandler.apply(null, arguments);
+            }
+
+            global.removeHandler = function(target, eventType, handler) {
+                global.removeHandler = window.removeEventListener ? 
+                function(t, e, cb) {
+                    console.log('removeEventListener')
+                    t.removeEventListener(e, cb);
+                } :
+                function(t, e, cb) {
+                    t.detachEvent('on' + e, cb);
+                }
+
+                return global.removeHandler.apply(null, arguments);
+            }
+
+        }(this);
+    
+        function init() {
+            var btn = document.getElementById('btn'),
+                btn2 = document.getElementById('btn2'),
+                cancelBtn = document.getElementById('cancel');
+
+            addHandler(btn, 'click', btnHandler);
+            function btnHandler(e) {
+                console.log(e.target);
+            }
+
+            addHandler(btn2, 'click', btnHandler2);
+            function btnHandler2(e) {
+                console.log(e.target);
+            }
+
+            addHandler(cancelBtn, 'click', function() {
+                removeHandler(btn, 'click', btnHandler);
+                removeHandler(btn2, 'click', btnHandler2);
+            })
+            
+        }
+    </script>
+</body>
+</html>
