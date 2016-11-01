@@ -1,2 +1,2 @@
-# JavaScript-winter
-Learn JavaScript in winter.
+# Learn JavaScript in winter.
+
