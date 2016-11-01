@@ -1,5 +1,5 @@
 {
-  "name": "JavaScript-winter",
+  "name": "Training.JavaScript",
   "version": "1.0.0",
   "description": "Learn JavaScript in winter.",
   "main": "index.js",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mrdulin/JavaScript-winter.git"
+    "url": "git+https://github.com/mrdulin/Training.JavaScript.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mrdulin/JavaScript-winter/issues"
+    "url": "https://github.com/mrdulin/Training.JavaScript/issues"
   },
-  "homepage": "https://github.com/mrdulin/JavaScript-winter#readme",
+  "homepage": "https://github.com/mrdulin/Training.JavaScript#readme",
   "devDependencies": {
     "babel-cli": "^6.16.0",
     "babel-core": "^6.17.0",
