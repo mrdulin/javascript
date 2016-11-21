@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+<script>
+    //不同浏览器会有差异，所以，尽量避免在条件语句下进行函数声明，函数声明会变量提升。
+    //safari 10.0输出fail, chrome 54输出pass
+    var score = 6;
+
+    if(score > 5) {
+        function grade() {
+            return 'pass'
+        }
+    } else {
+        function grade() {
+            return 'fail';
+        }
+    }
+
+    console.log(grade());
+</script>
+
+<script>
+    //函数表达式的优势在于，可以像变量赋值操作那样将函数体赋值给变量，它遵循应用正常的流程控制逻辑。
+    //safari 10.0和chrome 54都输出pass
+    var score = 6;
+
+    if(score > 5) {
+        var grade = function() {
+            return 'pass'
+        }
+    } else {
+        var grade = function() {
+            return 'fail';
+        }
+    }
+
+    console.log(grade());
+</script>
+</body>
+
+</html>
