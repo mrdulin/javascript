@@ -20,6 +20,10 @@
   "devDependencies": {
     "babel-cli": "^6.16.0",
     "babel-core": "^6.17.0",
+    "babel-polyfill": "^6.16.0",
     "babel-preset-stage-3": "^6.17.0"
+  },
+  "dependencies": {
+    "core-js": "^2.4.1"
   }
 }

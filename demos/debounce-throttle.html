@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>debounce and throttle</title>
+    <style>
+        #test{
+            position: relative;
+            width: 320px;
+            height: 568px;
+            overflow: auto;
+            border: 1px solid #333;
+        }
+        #resize-text{
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div id='test'>
+        <input type="text" id='city-search' placeholder='输入城市名称'>
+        <div id='resize-text'></div>
+        <p>修改搜索结果列表页标题前文描字段修改搜索结果列表页标题前文描字段</p>
+        <p>修改搜索结果列表页标题前文描字段</p>
+        <p>修改搜索结果列表页标题前文描字段</p>
+        <p>修改搜索结果列表页标题前文描字段</p>
+        <p>修改搜索结果列表页标题前文描字段</p>
+        <p>修改搜索结果列表页标题前文描字段</p>
+        <p>修改搜索结果列表页标题前文描字段</p>
+        <p>修改搜索结果列表页标题前文描字段</p>
+        <p>修改搜索结果列表页标题前文描字段</p>
+        <p>修改搜索结果列表页标题前文描字段</p>
+        <p>修改搜索结果列表页标题前文描字段</p>
+        <p>修改搜索结果列表页标题前文描字段</p>
+        <p>修改搜索结果列表页标题前文描字段</p>
+        <p>修改搜索结果列表页标题前文描字段</p>
+        <p>修改搜索结果列表页标题前文描字段</p>
+        <p>修改搜索结果列表页标题前文描字段</p>
+        <p>修改搜索结果列表页标题前文描字段</p>
+        <p>修改搜索结果列表页标题前文描字段</p>
+    </div>
+    <script>
+
+        window.onload = function() {
+            /**
+             *  debounce和throttle的区别：
+             *  debounce当事件或者某个动作执行完后延迟xxx时间，才执行指定的函数
+             *  throttle在事件或者某个动作执行过程中，每隔xxx时间，调用一次函数
+             * 
+             *  input 中输入文字自动发送 ajax 请求进行自动补全： debounce
+             *  resize window 重新计算样式或布局：debounce
+             *  scroll 时更新样式，如随动效果：throttle 
+             *  射击游戏中的mousedown、keydown事件
+             *  拖拽时的mousemove事件
+             */
+            
+            var debounce = function(idle, fn) {
+                var last;
+                return function() {
+                    var args = arguments, ctx = this;
+                    clearTimeout(last);
+                    last = setTimeout(function() {
+                        fn.apply(ctx, args);
+                    }, idle || 1000)
+                }
+            }
+
+            var throttle = function(delay, fn) {
+                var last = 0;
+                return function() {
+                    var args = arguments, current = +new Date();
+                    if(current - last > delay) {
+                        fn.apply(this, args);
+                        last = current;
+                    }
+                }
+            }
+
+            function handleChange(e) {
+                console.log(e, e.timeStamp);
+            }
+
+            function handleScroll(e) {
+                console.log(e, e.timeStamp);
+            }
+
+            document.getElementById('test').addEventListener('scroll', throttle(500, handleScroll), false);
+
+            var handleChangeDebounced = debounce(1000, handleChange);
+            document.getElementById('city-search').addEventListener('input', handleChangeDebounced, false);
+
+            window.addEventListener('resize', debounce(1000, handleResize), false);
+
+            function setResizeText() {
+                var d_resizeText = document.getElementById('resize-text');
+                var winSize = getWinSize();
+                d_resizeText.textContent = 'width: ' + winSize.w + ' ' + 'height: ' + winSize.h;
+            }
+            setResizeText();
+
+            function getWinSize() {
+                var w = window.innerWidth
+                || document.documentElement.clientWidth
+                || document.body.clientWidth;
+
+                var h = window.innerHeight
+                || document.documentElement.clientHeight
+                || document.body.clientHeight;
+
+                return {w: w, h: h};
+            }
+
+            function handleResize(e) {
+                setResizeText();
+            }
+        }
+    </script>
+</body>
