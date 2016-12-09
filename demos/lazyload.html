@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #test{
+            position: relative;
+            width: 320px;
+            height: 568px;
+            border: 1px solid #222;
+            overflow: auto;
+            box-sizing: border-box;
+        }
+        img{
+            max-width: 100%;
+            width: 100%;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id='test'></div>
+    <div id='message'></div>
+    <div id='scroll-msg'></div>
+    <script>
+        window.addEventListener('DOMContentLoaded', init);
+
+        function init() {
+            
+            var imgs = [
+                'http://lorempixel.com/400/200/sports/1',
+                'http://lorempixel.com/400/200/sports/2',
+                'http://lorempixel.com/400/200/sports/3',
+                'http://lorempixel.com/400/200/sports/4',
+                'http://lorempixel.com/400/200/sports/5',
+                'http://lorempixel.com/400/200/sports/6'
+            ];
+             var throttle = function(delay, fn) {
+                var last = 0;
+                return function() {
+                    var args = arguments, current = +new Date();
+                    if(current - last > delay) {
+                        fn.apply(this, args);
+                        last = current;
+                    }
+                }
+            }
+            var doc = document;
+            var placeholder = 'http://placehold.it/400x200';
+            var offsetY = 20;
+            var domCache = {};
+            var elemMessage = doc.getElementById('message');
+            var elemScrollMsg = doc.getElementById('scroll-msg');
+            var elemCtn = doc.getElementById('test');
+            var viewHeight = elemCtn.offsetHeight;
+
+            var docFrag = doc.createDocumentFragment();
+            var elemImg = null;
+            for(var i = 0, len = imgs.length; i < len; i++) {
+                elemImg = doc.createElement('img');
+                elemImg.setAttribute('data-src', imgs[i]);
+                elemImg.setAttribute('src', placeholder);
+                docFrag.appendChild(elemImg);
+            }
+            elemCtn.appendChild(docFrag);
+            
+            elemCtn.addEventListener('scroll', throttle(500, handleScroll), false);
+
+            function handleScroll(e) {
+                elemScrollMsg.textContent = '滚动事件时间戳：' + ~~e.timeStamp; 
+                lazyLoad();
+            }
+
+            function lazyLoad() {
+                if(!domCache.elemsImg) {
+                    domCache.elemsImg = [].slice.call(doc.querySelectorAll('img'), 0);
+                }
+                var scrollTop = elemCtn.scrollTop;
+                domCache.elemsImg.filter(function(el) {
+                    return el.hasAttribute('data-src');
+                }).forEach(function(elemImg, index) {
+                    var top = elemImg.getBoundingClientRect().top;
+                    if(top < viewHeight + scrollTop) {
+                        elemImg.src = elemImg.dataset.src;
+                        elemImg.removeAttribute('data-src');
+                        elemImg.onload = onload.bind(elemImg, index);
+                    }
+                });
+            }
+
+            function onload(index, e) {
+                console.log(e);
+                var pa = doc.createElement('p');
+                pa.textContent = index + ' -- img loaded ' + ~~e.timeStamp; 
+                elemMessage.appendChild(pa);
+            }
+
+            lazyLoad();
+            
+        }   
+    </script>
+</body>
+</html>
