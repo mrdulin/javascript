@@ -21,7 +21,7 @@ const execAsyncSequence = (asyncs, cb) => {
             result.push(value);
             if(count === len) {
                 cb(result);
-            } 
+            }
         });
     }
 }

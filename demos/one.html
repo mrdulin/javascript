@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button type='button' id='btn'>过年</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', init);
+
+        function addEventOne(el, event, handler, useCapture) {
+            var isListening = true;
+            el.addEventListener(event, onceHandler, useCapture);
+
+            function onceHandler(e) {
+                handler(e);
+                if(isListening) {
+                    isListening = !isListening;
+                    el.removeEventListener(event, onceHandler);
+                }
+            }
+        }
+
+        function init() {
+            var btn = document.getElementById('btn');
+
+            addEventOne(btn, 'click', clickHandler, false);
+
+            function clickHandler(e) {
+                alert(e);
+            }
+            
+        }
+    </script>
+</body>
+</html>
