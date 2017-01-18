@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script defer src="./a.js"></script>
+    <script src="./b.js"></script>
+    <script src="./c.js"></script>
+</head>
+<body>
+    <p>脚本a加了defer属性后，控制台依次输出b,c,a,add end: 1484751059296.084ms,async a</p>
+    <p>并且页面没有被脚本a中的for循环执行所阻塞。由于脚本b,c没有加defer并且在head标签中，b,c是会阻塞页面渲染的。这里由于b,c脚本代码量小，http请求下载的快，执行的快，所以感觉不明显。</p>
+
+    <div>
+        <img src="http://7xp9vw.com1.z0.glb.clouddn.com/image/1.jpg" alt="">
+    </div>
+</body>
+</html>

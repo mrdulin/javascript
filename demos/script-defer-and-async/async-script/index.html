@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script async src="./a.js"></script>
+    <script src="./b.js"></script>
+    <script src="./c.js"></script>
+</head>
+<body>
+    <p>async</p>
+
+    <p>资源在network中的请求顺序：a.js, b.js, c.js, 1.jpg</p>
+    <p>脚本的执行顺序: 1. b,c,a,add end: 1484751947580.429ms,async a</p>
+    <div>
+        <img src="http://7xp9vw.com1.z0.glb.clouddn.com/image/1.jpg" alt="">
+    </div>
+</body>
+</html>
