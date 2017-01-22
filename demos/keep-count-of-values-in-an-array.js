@@ -1,17 +1,14 @@
-/**
- * Created by elsa on 2017/1/13.
- */
+function getElementCountOfArray(arr) {
+    var countObj = {};
+    arr.forEach((element) => {
+        if(countObj[element]) {
+            countObj[element] ++;
+        } else {
+            countObj[element] = 1;
+        }
+    });
 
-const numArray = [2, 2, 3, 6, 7, 7, 7, 7, 8, 9];
+    return countObj;
+}
 
-const countObj = {};
-
-numArray.forEach((element, index) => {
-    if(countObj[element]) {
-        countObj[element] ++;
-    } else {
-        countObj[element] = 1;
-    }
-});
-
-console.log(countObj);
+module.exports = getElementCountOfArray;

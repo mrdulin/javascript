@@ -1,10 +1,7 @@
-/**
- * Created by elsa on 2017/1/13.
- */
-const numArray = [2, 2, 3, 6, 7, 7, 7, 7, 8, 9];
+function getUniqueArray(arr) {
+    return arr.filter((element, index, selfArray) => {
+        return selfArray.indexOf(element) === index;
+    });
+}
 
-const uniqueArray = numArray.filter((element, index, selfArray) => {
-    return selfArray.indexOf(element) === index;
-});
-
-console.log(uniqueArray);
+module.exports = getUniqueArray;

@@ -17,6 +17,5 @@ function flatten(arr, result) {
     return result;
 }
 
-var a = [1, [2, 3], [4, 5], [[6]], [[[6, 8], [10 ,11]]]];
+module.exports = flatten;
 
-console.log(flatten(a));

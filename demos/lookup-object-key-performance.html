@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>缓存对象中方法性能测试</title>
+</head>
+<body>
+<script>
+    var util = {};
+
+    for (var i = 0; i < 100000; i++) {
+        util['func' + i] = function () {
+            return i;
+        }
+    }
+
+    setInterval(function() {
+        kickass();
+        kickass2();
+    }, 1000);
+
+    function kickass() {
+        console.time('no-cache');
+        var result;
+        //放大执行时间
+        for (var i = 0; i < 1000000; i++) {
+            result = util.func8();
+        }
+        console.timeEnd('no-cache');
+    }
+
+
+    var func8 = util.func8;
+    function kickass2() {
+        console.time('cache');
+        var result;
+        for (var i = 0; i < 1000000; i++) {
+            result = func8();
+        }
+        console.timeEnd('cache');
+    }
+</script>
+</body>
+</html>
+
+
+
