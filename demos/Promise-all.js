@@ -15,17 +15,4 @@ P.all = items => new Promise((resolve, reject) => {
     }
 });
 
-var test1 = [1, Promise.reject(new Error('Something bad happened!'))];
-var test2 = [1, 2, 3, 4];
-
-P.all(test2).then(results => {
-    console.log(results);
-}).catch(e => {
-    console.error(e.message);
-})
-
-Promise.all(test1).then(results => {
-    console.log(results);
-}).catch(e => {
-    console.error(e.message);
-})
+module.exports = P;

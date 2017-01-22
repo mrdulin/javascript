@@ -1,15 +1,3 @@
-const fnNames = ['a', 'b', 'c'];
-
-const asyncGenerator = (names = []) => names.map(name => {
-    return cb => {
-        setTimeout(() => {
-            cb(name + new Date().getTime());
-        }, 2000);
-    }
-});
-
-const asyncArrs = asyncGenerator(fnNames);
-
 const execAsyncSequence = (asyncs, cb) => {
     let count = 0;
     const result = [];
@@ -24,8 +12,8 @@ const execAsyncSequence = (asyncs, cb) => {
             }
         });
     }
-}
+};
 
-execAsyncSequence(asyncArrs, (result) => {
-    console.log(result);
-});
+module.exports = execAsyncSequence;
+
+

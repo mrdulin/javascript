@@ -1,7 +1,7 @@
 /**
  * Created by dulin on 17/1/22.
  */
-var module = require('../demos/get-the-max-or-min-value-in-an-array.js');
+var module = require('../../demos/get-the-max-or-min-value-in-an-array.js');
 var getMaxOfArray = module.getMaxOfArray;
 var getMaxOfArrayBySpread = module.getMaxOfArrayBySpread;
 

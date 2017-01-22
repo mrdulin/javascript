@@ -1,7 +1,7 @@
 /**
  * Created by dulin on 17/1/22.
  */
-var getElementCountOfArray = require('../demos/keep-count-of-values-in-an-array');
+var getElementCountOfArray = require('../../demos/keep-count-of-values-in-an-array');
 var expect = require('chai').expect;
 
 describe('getElementCountOfArray', function() {

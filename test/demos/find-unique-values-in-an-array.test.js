@@ -1,7 +1,7 @@
 /**
  * Created by dulin on 17/1/22.
  */
-var getUniqueArray = require('../demos/find-unique-values-in-an-array');
+var getUniqueArray = require('../../demos/find-unique-values-in-an-array');
 var expect = require('chai').expect;
 
 describe('getUniqueArray', function () {
