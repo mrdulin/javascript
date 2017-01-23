@@ -4,7 +4,8 @@
   "description": "Learn JavaScript in winter.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --recursive"
+    "test": "mocha --recursive --reporter spec",
+    "test:doc": "mocha --recursive --reporter doc > test/reporter.html"
   },
   "repository": {
     "type": "git",
