@@ -22,5 +22,5 @@ describe('getMaxOfArrayBySpread', function() {
         var numArray = [2, 2, 3, 6, 7, 7, 7, 7, 8, 9];
 
         expect(getMaxOfArrayBySpread(numArray)).to.be.equal(9);
-    })
+    });
 });

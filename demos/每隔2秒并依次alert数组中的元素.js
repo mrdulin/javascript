@@ -2,6 +2,22 @@
 
 const arr = [1,2,3,4,5];
 
-const queneAlert = (arr, wait, immediate) => {
- 
-}
+const queneInvoke = (arr, wait) => {
+    var arrClone = arr.concat([]);
+    var el = arrClone.shift();
+    if(queneInvoke.first === undefined) {
+        queneInvoke.first = true;
+    }
+
+    if(queneInvoke.first) {
+        console.log(el);
+        queneInvoke.first = false;
+        queneInvoke(arrClone, wait);
+    } else {
+        setTimeout(function() {
+            console.log(el);
+        }, wait);
+    }
+
+};
+
