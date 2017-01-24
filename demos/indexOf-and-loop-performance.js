@@ -23,3 +23,5 @@ for(let i = 0; i < len; i ++) {
 }
 console.log('for-loop index: ', index);
 console.timeEnd('for-loop index');
+
+//https://jsperf.com/array-indexOf-vs-for-performance
