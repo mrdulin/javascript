@@ -28,5 +28,15 @@ const numbers = [9, 4, 2, 1];
 console.log(Math.min(...numbers));
 
 
-//
+// ../node_modules/.bin/babel-node Spread-Operator.js
+// 对于React中很多的解构赋值，当父组件传递了很多props给子组件时，子组件可能只需要部分props(x, y)，剩余的(z)可以继续往子组件传递
 console.log('5. 解构赋值');
+let {x, y, ...z} = {x: 1, y: 2, a: 3, b: 4};
+console.log(x, y, z);
+
+// 6. 转换arguments或者NodeList等类数组为数组
+
+// [...document.querySelectorAll('div')]
+// var myFn = function(...args) {
+//  //args现在为数组类型
+// }
