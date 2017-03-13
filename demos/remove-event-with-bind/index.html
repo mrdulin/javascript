@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #param{
+        transition: opacity .2s ease-in;
+        opacity: 1;
+    }
+    #param-2{
+        display: none;
+    }
+    </style>
+</head>
+<body>
+    <p id='param'>监听和移除通过bind绑定了作用域的函数</p>
+    <p id='param-2'>过渡动画结束</p>
+    <button id='fadeOut' type="button">淡出段落</button>
+
+    <p id='param-3'>例2</p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', init);
+        function init() {
+            var doc = document;
+            var param = doc.getElementById('param'),
+                param2 = doc.getElementById('param-2'),
+                param3 = doc.getElementById('param-3'),
+                ex1Btn = doc.getElementById('fadeOut');
+            
+            var handleTransitionend;
+
+            ex1Btn.addEventListener('click', handleEx1BtnClick, false);
+            param3.addEventListener('transitionend', function() {} , false);
+            
+            function handleEx1BtnClick(e) {
+                handleTransitionend = showParam2.bind(null, unbindTransitionEnd);
+                param.addEventListener('transitionend', handleTransitionend, false);
+                fadeOutParam();
+            }
+
+            function showParam2(cb) {
+                param2.style.cssText = 'display: block';
+                cb && cb();
+            }
+
+            function fadeOutParam() {
+                param.style.cssText = 'opacity: 0;';
+            }
+
+            function unbindTransitionEnd() {
+                param.removeEventListener('transitionend', handleTransitionend, false);
+            }
+        }
+    </script>
+</body>
+</html>
