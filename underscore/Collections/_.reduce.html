@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.reduce用法</title>
+    <!--underscore ver 1.8.3-->
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.reduce(list, iteratee, [memo], [context])
+
+    var developers = [
+        { name: "Joe", age: 23 },
+        { name: "Sue", age: 28 },
+        { name: "Jon", age: 32 },
+        { name: "Bob", age: 24 }
+    ], age = 0;
+
+    console.log('alias:', _.reduce === _.inject && _.inject === _.foldl);   //=> true
+
+    //第四个参数为context，迭代器中this指针的指向context
+    age = _.reduce(developers, function(memo, developer, index, self) {
+        console.log(developers === self); //=> true
+        console.log(index); //=> 0 1 2 3
+        return memo + developer.age; // return previous total plus current age
+    }, age); // initialize age with 0 that will be passed as memo
+
+
+    //reduce没有第三个参数，则function的第一个参数memo第一次使用developers的第一个元素，第二次memo则为合并的值51
+    var newAge = _.inject(developers, function(memo, developer, index, self) {
+        if(memo.age) {
+            return memo.age + developer.age;
+        } else {
+            return memo + developer.age;
+        }
+    });
+
+    console.log("Sum of all developer ages is " + age); //=> 107
+    console.log("Sum of all developer ages is " + newAge);  //=> 107
+
+</script>
+</body>
+</html>

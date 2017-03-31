@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.unzip</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.unzip(*arrays)
+    //与zip功能相反的函数，给定若干arrays，返回一串联的新数组，其第一元素个包含所有的输入数组的第一元素，其第二包含了所有的第二元素，依此类推。通过apply用于传递数组的数组。
+
+    var arr = _.unzip([["moe", 30, true], ["larry", 40, false], ["curly", 50, false]]);
+
+    console.log(arr);   //=>[['moe', 'larry', 'curly'], [30, 40, 50], [true, false, false]]
+</script>
+</body>
+</html>

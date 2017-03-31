@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.isObject</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.isObject(value)
+
+    //如果object是一个对象，返回true。需要注意的是JavaScript数组和函数是对象，字符串和数字不是。
+
+    console.log(_.isObject({}));    //=>true
+
+    console.log(_.isObject([]));    //=>true
+
+    console.log(_.isObject(null));  //=>false
+
+    console.log(_.isObject(1));     //=>false
+</script>
+</body>
+</html>

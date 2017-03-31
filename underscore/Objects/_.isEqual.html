@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.isEqual</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.isEqual(object, other)
+
+    //执行两个对象之间的优化深度比较，确定他们是否应被视为相等。
+
+    var stooge = {name: 'moe', luckyNumbers: [13, 27, 34]};
+    var clone  = {name: 'moe', luckyNumbers: [13, 27, 34]};
+
+    console.log(stooge == clone);   //=>false
+
+    var isEqual = _.isEqual(stooge, clone);
+
+    console.log(isEqual);   //=>true
+
+</script>
+</body>
+</html>

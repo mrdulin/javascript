@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.countBy</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.countBy(list, iteratee, [context])
+
+    //排序一个列表组成一个组，并且返回各组中的对象的数量的计数。类似groupBy，但是不是返回列表的值，而是返回在该组中值的数目。
+
+    var arr = _.countBy([1, 2, 3, 4, 5], function(num) {
+        return num % 2 == 0 ? 'even': 'odd';
+    });
+
+    console.log(arr);   //=>{odd: 3, even: 2}
+</script>
+</body>
+</html>

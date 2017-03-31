@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>_.findLastIndex</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+
+<body>
+    <script>
+    //_.findLastIndex(array, predicate, [context]) 
+
+    /*和_.findIndex类似，但反向迭代数组，当predicate通过真检查时，最接近末端的索引值将被返回。*/
+
+    var users = [{
+        'id': 1,
+        'name': 'Bob',
+        'last': 'Brown'
+    }, {
+        'id': 2,
+        'name': 'Ted',
+        'last': 'White'
+    }, {
+        'id': 3,
+        'name': 'Frank',
+        'last': 'James'
+    }, {
+        'id': 4,
+        'name': 'Ted',
+        'last': 'Jones'
+    }];
+
+    var index = _.findLastIndex(users, {
+        name: 'Ted'
+    });
+
+    console.log(index);	//=>3
+
+    </script>
+</body>
+
+</html>

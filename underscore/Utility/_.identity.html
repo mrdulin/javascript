@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.identity</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.identity(value)
+
+    //返回与传入参数相等的值. 相当于数学里的: f(x) = x
+    //这个函数看似无用, 但是在Underscore里被用作默认的迭代器iterator.
+
+    var stooge = {name: 'moe'};
+
+    console.log(stooge === _.identity(stooge));  //=>true
+
+
+    function transformer(transformationFn, value) {
+        return (transformationFn || _.identity)(value);
+    }
+
+    var dataTransformed = transformer(undefined, 'some data');
+
+    console.log(dataTransformed);   //=>some data
+
+</script>
+</body>
+</html>

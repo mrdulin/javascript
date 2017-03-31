@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.isArguments</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.isArguments(object)
+
+    //如果object是一个参数对象，返回true。
+
+    var isArguments = (function(){
+        return _.isArguments(arguments);
+    })(1, 2, 3);
+
+    console.log(isArguments);   //=>true
+
+    var isArgs = _.isArguments([1, 2, 3]);
+
+    console.log(isArgs);    //=>false
+
+</script>
+</body>
+</html>

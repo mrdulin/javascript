@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.last</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.last(array, [n])
+    //返回array（数组）的最后一个元素。传递 n参数将返回数组中从最后一个元素开始的n个元素。
+
+    var arr = [5, 4, 3, 2, 1];
+
+    var newArr = _.last(arr);
+    var newArr2 = _.last(arr, 3);
+
+    console.log(arr);   //=> [5, 4, 3, 2, 1]
+    console.log(newArr);    //=> 1
+    console.log(newArr2);   //=> [3, 2, 1]
+
+</script>
+</body>
+</html>

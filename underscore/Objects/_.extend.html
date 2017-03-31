@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.extend</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.extend(destination, *sources)
+
+    //复制source对象中的所有属性覆盖到destination对象上，并且返回 destination 对象.
+    //复制是按顺序的, 所以后面的对象属性会把前面的对象属性覆盖掉(如果有重复).
+
+    var data = _.extend({name: 'moe'}, {age: 50});
+
+    console.log(data);  //=>{name: 'moe', age: 50}
+
+</script>
+</body>
+</html>

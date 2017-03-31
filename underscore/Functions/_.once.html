@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.once</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+
+<script>
+    //_.once(function)
+
+    //创建一个只能调用一次的函数。重复调用改进的方法也没有效果，只会返回第一次执行时的结果。
+    //作为初始化函数使用时非常有用, 不用再设一个boolean值来检查是否已经初始化完成.
+
+    var initialize = _.once(createApplication);
+
+    function createApplication() {
+        console.log('init');
+    }
+
+    initialize();
+    initialize();
+
+
+</script>
+</body>
+</html>

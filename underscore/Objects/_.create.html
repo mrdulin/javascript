@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.create</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.create(prototype, props)
+
+    //创建具有给定原型的新对象， 可选附加props 作为 own的属性。 基本上，和Object.create一样， 但是没有所有的属性描述符。
+
+    function Stooge(name) {
+        this.name = name;
+    }
+    Stooge.prototype.silly = true;
+
+    var moe = _.create(Stooge.prototype, {name: "angular"});
+
+    console.log(moe.name);   //=>"angular"
+    console.log(moe.silly); //=>true
+
+
+</script>
+</body>
+</html>

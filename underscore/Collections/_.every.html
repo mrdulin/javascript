@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.every用法</title>
+    <!--underscore ver 1.8.3-->
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+
+    //_.every(list, [predicate], [context])
+    //如果list中的所有元素都通过predicate的真值检测就返回true。
+
+    console.log('alias:', _.every === _.all); //=> true
+
+    var hasTrue = _.every([true, 1, null, 'yes'], _.identity);
+
+    console.log(hasTrue);  //=> false
+
+</script>
+</body>
+</html>

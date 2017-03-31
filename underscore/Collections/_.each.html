@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.each用法</title>
+    <!--underscore ver 1.8.3-->
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.each(list, iteratee, [context]) 
+
+    /*遍历数组*/
+    var nameArr = ['angular', 'underscore', 'backbone', 'jquery'];
+    var indexArr = [1, 2, 3];
+
+    console.log('alias:', _.each === _.forEach); //=> true
+
+    _.each(indexArr, function(elem, index, arrSelf) {
+
+        //this为nameArr的引用
+        console.log(this[elem]); //=>underscore backbone jquery
+        console.log(index); //=>0 1 2
+        //arrSelf为indexArr的引用，两者指针相同
+        console.log(arrSelf === indexArr); //=>true
+
+    }, nameArr);
+
+
+    /*遍历对象*/
+    var data = {
+        name: 'angular',
+        version: '1.4.7',
+        type: 'js'
+    };
+
+    var otherData = {
+        name: 'underscore'
+    };
+
+    _.each(data, function(value, key, objSelf) {
+
+        if(this[key]){
+            console.log(this[key]); //=> underscore
+        }
+
+        console.log(value); //=> angular 1.4.7 js
+        console.log(key); //=> name version type
+        console.log(data === objSelf); //=> true
+
+    }, otherData);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.map用法</title>
+    <!--underscore ver 1.8.3-->
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.map(list, iteratee, [context]) 
+
+    var nameArr = ['angular', 'underscore', 'backbone', 'jquery'];
+    var indexArr = [1, 2, 3];
+    var dataObj = {
+        one: 1,
+        two: 2,
+        three: 3
+    };
+
+    var otherData = {
+        one: 10
+    };
+    //别名，相同的函数引用指针
+    console.log('alias:', _.map === _.collect); //=> true
+
+    /*遍历数组*/
+    var newIndexArr = _.map(indexArr, function(elem, index, arrSelf) {
+        console.log(indexArr === arrSelf); //=> true
+        return elem * 2;
+    });
+    //不改变原数组
+    console.log(indexArr);  //=> [1, 2, 3]
+    console.log(newIndexArr);   //=> [2, 4, 6]
+
+    /*遍历对象*/
+    var newDataArr = _.collect(dataObj, function(value, key, objSelf) {
+        if(this[key]) {
+            return this[key];
+        } else {
+            return value * 2;
+        }
+    }, otherData);
+
+    console.log(dataObj);   //=> {one: 1, two: 2, three: 3}
+    console.log(newDataArr);    //=> [10, 4, 6]
+
+    /*配合underscore其他方法使用*/
+    var numArr = [[1, 2], [3, 4]];
+    var newNumArr = _.collect(numArr, _.first);
+    console.log(numArr);    //=> [[1, 2], [3, 4]];
+    console.log(newNumArr);    //=> [1, 3];
+
+
+</script>
+</body>
+</html>

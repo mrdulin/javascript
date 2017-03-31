@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.NaN</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.isNaN(object)
+
+    //如果object是 NaN，返回true。
+    //注意： 这和原生的isNaN 函数不一样，如果变量是undefined，原生的isNaN 函数也会返回 true 。
+
+    console.log(_.isNaN(NaN));  //=>true
+
+    console.log(isNaN(undefined));  //=>true
+
+    console.log(_.isNaN(undefined));    //=>false
+
+
+</script>
+</body>
+</html>

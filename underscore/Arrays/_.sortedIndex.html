@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>_.sortedIndex</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+
+<body>
+    <script>
+    //_.sortedIndex(list, value, [iteratee], [context]) 
+
+    //使用二分查找确定value在list中的位置序号，value按此序号插入能保持list原有的排序。
+    //如果提供iterator函数，iterator将作为list排序的依据，包括你传递的value 。
+    //iterator也可以是字符串的属性名用来排序(比如length)。
+
+    var arr = [10, 20, 30, 40, 50];
+    var index = _.sortedIndex(arr, 35);
+
+    console.log(index); //=> 3
+
+    var stooges = [{
+        name: 'moe',
+        age: 40
+    }, {
+        name: 'curly',
+        age: 60
+    }];
+    var stoogeIndex = _.sortedIndex(stooges, {
+        name: 'larry',
+        age: 50
+    }, 'age');
+
+    console.log(stoogeIndex); //=> 1
+    </script>
+</body>
+
+</html>

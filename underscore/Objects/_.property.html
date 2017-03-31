@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.property</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.property(key)
+
+    //返回一个函数，这个函数返回任何传入的对象的key属性。
+
+    var stooge = {name: 'moe'};
+
+    var getName = _.property('name');
+
+    console.log('moe' === getName(stooge)); //=>true
+</script>
+</body>
+</html>

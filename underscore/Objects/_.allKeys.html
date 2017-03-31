@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.allKeys(object)
+
+    //检索object拥有的和继承的所有属性的名称。
+
+    function Stooge(name) {
+        this.name = name;
+    }
+    Stooge.prototype.silly = true;
+
+    var allKeys = _.allKeys(new Stooge("Moe"));
+
+    console.log(allKeys);   //=>["name", "silly"]
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.constant</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.constant(value)
+
+    //创建一个函数，这个函数 返回相同的值 用来作为_.constant的参数。
+
+    var stooge = {name: 'moe'};
+
+    console.log(stooge === _.constant(stooge)());
+
+</script>
+</body>
+</html>

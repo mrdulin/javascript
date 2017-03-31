@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.negate</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+
+<script>
+    //_.negate(predicate)
+
+    //返回一个新的predicate函数的否定版本。
+
+    var isFalsy = _.negate(Boolean);
+
+    var result = _.find([-2, -1, 0, 1, 2], isFalsy);
+
+    console.log(result);    //=>0
+
+</script>
+</body>
+</html>

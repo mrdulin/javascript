@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.without</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.without(array, *values)
+    //返回一个删除所有values值后的array副本。
+
+    var arr = [1, 2, 1, 0, 3, 1, 4];
+
+    var newArr = _.without(arr, 0, 1);
+
+    //不改变原数组
+    console.log(arr);   //=>[1, 2, 1, 0, 3, 1, 4]
+    console.log(newArr);    //=>[2, 3, 4]
+
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.isError</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.isError(object)
+
+    //如果object继承至 Error 对象，那么返回 true。
+
+    try {
+        throw new TypeError("Example");
+    } catch (o_O) {
+        console.log(_.isError(o_O));    //=>true
+    }
+
+</script>
+</body>
+</html>

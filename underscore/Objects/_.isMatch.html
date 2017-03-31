@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.isMatch</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.isMatch(object, properties)
+
+    //告诉你properties中的键和值是否包含在object中。
+
+    var stooge = {name: 'moe', age: 32};
+
+    var isMatch = _.isMatch(stooge, {age: 32});
+
+    console.log(isMatch);   //=>true
+
+</script>
+</body>
+</html>

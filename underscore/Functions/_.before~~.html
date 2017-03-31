@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.before</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+
+<script>
+    //_.before(count, function)
+
+    //创建一个函数,调用不超过count 次。 当count已经达到时，最后一个函数调用的结果 是被记住并返回 。
+
+    var result = _.before(3, add);
+
+
+    function add() {
+        var count = 0;
+        count++;
+        return count;
+    }
+
+    console.log(result());
+    console.log(result());
+    console.log(result());
+
+</script>
+</body>
+</html>

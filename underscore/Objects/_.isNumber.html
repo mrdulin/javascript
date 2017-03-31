@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.isNumber</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.isNumber(object)
+
+    //如果object是一个数值，返回true (包括 NaN)。
+
+    var isNum = _.isNumber(8.4 * 5);
+
+    console.log(isNum); //=>true
+
+    var isNumber = _.isNumber(NaN);
+
+    console.log(isNumber);  //=>true
+
+</script>
+</body>
+</html>

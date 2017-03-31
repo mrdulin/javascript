@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.union</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.union(*arrays)
+    //返回传入的 arrays（数组）并集：按顺序返回，返回数组的元素是唯一的，可以传入一个或多个 arrays（数组）。
+
+    var arr = _.union([1, 2, 3], [101, 2, 1, 10], [2, 1]);
+
+    console.log(arr);   //=>[1, 2, 3, 101, 10]
+
+</script>
+</body>
+</html>

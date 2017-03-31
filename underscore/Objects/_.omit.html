@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.omit</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.omit(object, *keys)
+
+    //返回一个object副本，只过滤出除去keys(有效的键组成的数组)参数指定的属性值。 或者接受一个判断函数，指定忽略哪个key。
+
+    var data = _.omit({name: 'moe', age: 50, userid: 'moe1'}, 'userid');
+
+    console.log(data);  //=>{name: 'moe', age: 50}
+
+    var omitData = _.omit({name: 'moe', age: 50, userid: 'moe1'}, function(value, key, object) {
+        return _.isNumber(value);
+    });
+
+    console.log(omitData);  //=>{name: 'moe', userid: 'moe1'}
+
+</script>
+</body>
+</html>

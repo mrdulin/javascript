@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.propertyOf</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.propertyOf(object)
+
+    //和_.property相反。需要一个对象，并返回一个函数,这个函数将返回一个提供的属性的值。
+
+    var stooge = {name: 'moe'};
+
+    var getName = _.propertyOf(stooge);
+
+    var name = getName('name');
+
+    console.log(name);  //=> "moe"
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.min</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.min(list, [iteratee], [context])
+
+    //返回list中的最小值。如果传递iteratee参数，iteratee将作为list中每个值的排序依据。如果list为空，将返回-Infinity，所以你可能需要事先用isEmpty检查 list 。
+
+    var numbers = [10, 5, 100, 2, 1000];
+
+    var min = _.min(numbers);
+
+    console.log(min);   //=>2
+</script>
+</body>
+</html>
