@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notification API Test</title>
+</head>
+<body>
+<button type="button" onclick="notifyMe()">Notify</button>
+<button type="button" onclick="closeN()">close</button>
+<script>
+
+    var notification;
+
+    function notifyMe() {
+        // Let's check if the browser supports notifications
+        if (!("Notification" in window)) {
+            alert("This browser does not support desktop notification");
+        }
+
+        // Let's check if the user is okay to get some notification
+        else if (Notification.permission === "granted") {
+            // If it's okay let's create a notification
+            notification = new Notification("title", {
+                dir: 'rtl',
+                body: 'notification body',
+                icon: './icon.jpeg'
+            });
+        }
+
+        // Otherwise, we need to ask the user for permission
+        else if (Notification.permission !== 'denied') {
+            Notification.requestPermission(function (permission) {
+                // If the user is okay, let's create a notification
+                if (permission === "granted") {
+                    notification = new Notification("title", {
+                        dir: 'rtl',
+                        body: 'notification body',
+                        icon: './icon.jpeg'
+                    });
+                }
+            });
+        }
+
+        if(notification) {
+            notification.onclick = function onclick() {
+                notification.close();
+                window.location.href = 'https://github.com';
+            };
+
+            notification.onshow = function onshow() {
+                console.log('Notification show')
+            };
+
+            notification.onclose = function onclose() {
+                console.log('Notification close');
+            };
+        }
+
+        // At last, if the user already denied any notification, and you
+        // want to be respectful there is no need to bother them any more.
+    }
+
+    function closeN() {
+        console.log(notification);
+        if(notification) {
+            notification.close();
+        }
+    }
+</script>
+</body>
+</html>
