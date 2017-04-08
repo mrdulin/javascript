@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is other page</h1>
+    <div id='content'>
+        <p id='origin'></p>
+        <p id='data'></p>
+    </div>
+    <script>
+        window.onload = init;
+        function init() {
+            window.addEventListener('message', updateView, false);
+        }
+
+        function updateView(event) {
+            var doc = document;
+            var dom_content = doc.getElementById('content');
+            var dom_origin = doc.getElementById('origin');
+            var dom_data = doc.getElementById('data');
+            // alert('Got message');
+            var origin = event.origin || event.originalEvent.origin || 'null';
+            var data = event.data;
+            dom_origin.textContent = 'The message is from: ' + origin;
+            dom_data.textContent = data;
+        }   
+          
+    </script>
+</body>
+</html>

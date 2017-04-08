@@ -5,7 +5,7 @@ __TODO__
 - [ ] JavaScript ServiceWorker API
 - [ ] 测试带宽功能
 - [ ] 实现截图功能
-- [ ] 不带协议的url地址: `//xxx.com/123.jpg`
+- [x] 不带协议的url地址: `//xxx.com/123.jpg`
 - [ ] https域名不能访问http域名资源，http可以访问https
 - [ ] 单点登录，多点登录
 - [ ] JavaScript变量命名规范，例如dom元素如何命名
@@ -92,3 +92,15 @@ npm i babel-polyfill --save
 ```js
 require('babel-polyfill');
 ```
+
+Q: 如何合并两个不同的github仓库，并且保留历史提交记录
+
+```
+cd path/to/project-b
+git remote add project-a path/to/project-a
+git fetch project-a
+git merge --allow-unrelated-histories project-a/master # or whichever branch you want to merge
+git remote remove project-a
+```
+
+`--allow-unrelated-histories`参数，需要`git`版本 >= `2.9`
