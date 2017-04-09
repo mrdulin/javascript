@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is index page</h1>
+    <button type="button" id='save'>save</button>
+    <button type="button" id='clear'>clear</button>
+    <div id='content'></div>
+
+    <iframe src="./other.html"></iframe>
+
+    <p>file:// 协议下，由于安全限制，storageEvent 是不会触发的。</p>
+    <p>这里用了 gulp-webserver 来建立一个本地服务器。</p>
+    <p>同一个页面操作localStorage，就算该页面监听storage事件，也不会触发。</p>
+    <p>
+        详见：
+        <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API">
+            https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
+        </a>
+    </p>
+    <script>
+        window.onload = init;
+        function init() {
+            var doc = document;
+            var dom_save = document.getElementById('save');
+            var dom_clear = document.getElementById('clear');
+            
+            window.addEventListener('storage', onStorageChange, false);
+            dom_save.addEventListener('click', handleSave, false);
+            dom_clear.addEventListener('click', handleClear, false);
+        }
+
+        function onStorageChange(e) {
+            var doc = document;
+            var dom_content = doc.getElementById('content');
+            console.log(e);
+            dom_content.textContent = e.newValue;
+        }
+
+        function handleSave() {
+            localStorage.setItem('name', 'novaline');
+        }
+
+        function handleClear(e) {
+            localStorage.clear();
+        }
+        
+    </script>
+</body>
+</html>
