@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.isEmpty</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.isEmpty(object)
+
+    //如果object不包含任何值(没有可枚举的属性)，返回true。
+    //对于字符串和类数组（array-like）对象，如果length属性为0，那么_.isEmpty检查返回true。
+
+    console.log(_.isEmpty([1, 2, 3]));  //=>false
+
+    console.log(_.isEmpty({})); //=>true
+</script>
+</body>
+</html>

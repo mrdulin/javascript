@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.groupBy</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.groupBy(list, iteratee, [context])
+
+    //把一个集合分组为多个集合，通过 iterator 返回的结果进行分组. 如果 iterator 是一个字符串而不是函数, 那么将使用 iterator 作为各元素的属性名来对比进行分组.
+
+    var group = _.groupBy([1.3, 2.1, 2.4], function (num) {
+        return Math.floor(num);
+    });
+
+    console.log(group); //=>{1: [1.3], 2: [2.1, 2.4]}
+
+    var lenGroup = _.groupBy(['one', 'two', 'three'], 'length');
+
+    console.log(lenGroup);  //=>{3: ["one", "two"], 5: ["three"]}
+
+</script>
+</body>
+</html>

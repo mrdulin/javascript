@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.clone</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.clone(object)
+
+    //创建一个浅复制（浅拷贝）的克隆object。任何嵌套的对象或数组都通过引用拷贝，不会复制。
+
+    var data = {name: 'moe'};
+    var copy = _.clone(data);
+
+    console.log(copy);  //=>{name: 'moe'}
+
+    console.log(data === copy); //=>false
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.first</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.first(array, [n])
+    //返回array（数组）的第一个元素。传递 n参数将返回数组中从第一个元素开始的n个元素
+
+    console.log('alias:', _.first === _.head && _.head === _.take);
+
+    var arr = [1, 2, 3, 4, 5];
+
+    var firstElem = _.first(arr);
+
+    console.log(firstElem); //=> 1
+
+    var elems = _.first(arr, 3);
+
+    console.log(elems); //=> [1,2,3]
+
+</script>
+</body>
+</html>

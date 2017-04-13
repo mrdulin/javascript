@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>_.compact</title>
+    <script src="../../../bower_components/underscore/underscore.js"></script>
+</head>
+
+<body>
+    <script>
+    //_.compact(array)
+    //返回一个除去所有false值的array副本。 在javascript中, false, null, 0, "", undefined 和 NaN 都是false值.
+
+    var arr = [0, 1, false, 2, '', 3];
+
+    var newArr = _.compact(arr);
+
+    console.log(newArr); //=>[1, 2, 3]
+    </script>
+</body>
+
+</html>

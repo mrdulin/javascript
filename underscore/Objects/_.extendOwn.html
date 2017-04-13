@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.extendOwn</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.extendOwn(destination, *sources)
+
+    //类似于 extend, 但只复制自己的属性覆盖到目标对象。不包括继承过来的属性。
+
+    console.log('alias:', _.extendOwn === _.assign);
+
+    function People(name) {
+        this.name = name;
+    }
+
+    People.prototype.isDog = false;
+
+    var person = new People('angular');
+
+    person.money = 10000;
+
+    var newPerson = _.extendOwn({age: 21}, person);
+
+    console.log(newPerson); //=>{age: 21, name: "angular", money: 10000}
+
+
+</script>
+</body>
+</html>

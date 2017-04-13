@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.initial</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+
+    //_.initial(array, [n])
+    //返回数组中除了最后一个元素外的其他全部元素。 在arguments对象上特别有用。传递 n参数将从结果中排除从最后一个开始的n个元素（愚人码头注：排除数组后面的 n 个元素）。
+
+    var arr = [5, 4, 3, 2, 1];
+
+    var newArr = _.initial(arr, 3);
+
+    //不改变原数组
+    console.log(arr);   //=>[5, 4, 3, 2, 1]
+    console.log(newArr); //=> [5, 4]
+
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.functions</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.functions(object)
+
+    //返回一个对象里所有的方法名, 而且是已经排序的，也就是说, 对象里每个方法(属性值是一个函数)的名称.
+
+    console.log('alias:', _.functions === _.methods);  //=> true
+
+    var fns = _.functions(_);
+
+    console.log(fns);   //=> ["all", "any", "bind", "bindAll", "clone", "compact", "compose" ...
+
+</script>
+</body>
+</html>

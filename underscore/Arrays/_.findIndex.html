@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>_.findIndex</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+
+<body>
+    <script>
+    
+    //_.findIndex(array, predicate, [context]) 
+    //类似于_.indexOf，当predicate通过真检查时，返回第一个索引值；否则返回-1。
+
+    var arr1 = [4, 6, 8, 12];
+    var arr2 = [4, 6, 7, 12];
+
+    var index1 = _.findIndex(arr1, isPrime);
+
+    var index2 = _.findIndex(arr2, isPrime);
+
+    //质数
+    function isPrime(element, index, array) {
+        var start = 2;
+        while (start <= Math.sqrt(element)) {
+            if (element % start++ < 1) return false;
+        }
+        return (element > 1);
+    }
+
+    console.log(index1); //=> -1
+
+    console.log(index2); //=> 2
+
+    </script>
+</body>
+
+</html>

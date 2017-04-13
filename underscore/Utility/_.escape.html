@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.escape</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+
+<div id="escapeHtml">
+    <p>转义方法&nbsp;_.escape</p>
+</div>
+
+<script>
+    //_.escape(string)
+
+    //转义HTML字符串，替换&, <, >, ", ', 和 /字符。
+
+    window.onload = function() {
+
+        var html = document.getElementById('escapeHtml').innerHTML;
+
+        var escapeHtml = _.escape(html);
+
+        console.log(escapeHtml);    //=>&lt;p&gt;转义方法&amp;nbsp;_.escape&lt;/p&gt;
+
+    }
+
+</script>
+</body>
+</html>

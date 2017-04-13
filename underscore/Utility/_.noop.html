@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.noop</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.noop()
+
+    //返回undefined，不论传递给它的是什么参数。 可以用作默认可选的回调参数。
+
+    function success(cb) {
+        (cb || _.noop)();
+    }
+
+</script>
+</body>
+</html>

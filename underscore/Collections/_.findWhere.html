@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.findWhere用法</title>
+    <!--underscore ver 1.8.3-->
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+
+    //_.findWhere(list, properties)
+
+    ////遍历整个list，返回匹配properties参数所列出的所有 键 - 值 对的第一个值。
+
+    var arr = [
+        {
+            name: 'angular',
+            type: 'js'
+        },
+        {
+            name: 'jquery',
+            type: 'js'
+        },
+        {
+            name: 'less',
+            type: 'css'
+        }
+    ];
+
+    var newArr = _.findWhere(arr, {type: 'js'});
+
+    //不会改变原数组
+    console.log(arr);   //=> [{name: 'angular', type: 'js'}, {name: 'jquery', type: 'js'}, {name: 'less', type: 'css'}]
+    console.log(newArr);  //=> {name: 'angular', type: 'js'}
+
+</script>
+</body>
+</html>

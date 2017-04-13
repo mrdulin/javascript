@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.rest</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.rest(array, [index])
+    //返回数组中除了第一个元素外的其他全部元素。传递 index 参数将返回从index开始的剩余所有元素 。
+
+    console.log('alias:', _.rest === _.tail && _.tail === _.drop);  //=> true
+
+    var arr = [5, 4, 3, 2, 1];
+
+    var newArr = _.rest(arr);
+
+    var newArr2 = _.rest(arr, 2);
+
+    console.log(arr);   //=> [5, 4, 3, 2, 1]
+    console.log(newArr);    //=> [4, 3, 2, 1]
+    console.log(newArr2);   //=> [3, 2, 1]
+
+
+</script>
+</body>
+</html>

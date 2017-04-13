@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.reduceRight用法</title>
+    <!--underscore ver 1.8.3-->
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+
+    //_.reduceRight(list, iteratee, memo, [context])
+
+    console.log('alias:', _.reduceRight === _.foldr); //=> true
+
+    var list = [[0, 1], [2, 3], [4, 5]];
+    var flat = _.reduceRight(list, function(a, b) {
+        //第一次a为[], b为[4, 5]
+        //第二次a为[4, 5], b为[2, 3]
+        //第三次a为[4, 5, 2, 3], b为[0, 1]
+        return a.concat(b);
+    }, []);
+
+    console.log(flat);  //=>[4, 5, 2, 3, 0, 1]
+
+</script>
+</body>
+</html>

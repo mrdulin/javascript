@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.isArray</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.isArray(object)
+
+    //如果object是一个数组，返回true。类数组返回false。
+
+    var isArr = (function(){
+        return _.isArray(arguments);
+    })();
+
+    console.log(isArr); //=>false
+
+    var arr = [1, 2, 3];
+
+    var isArray = _.isArray(arr);
+
+    console.log(isArray);   //=>true
+</script>
+</body>
+</html>

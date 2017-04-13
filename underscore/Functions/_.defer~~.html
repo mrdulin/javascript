@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.defer</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+
+<script>
+    //_.defer(function, *arguments)
+
+    //延迟调用function直到当前调用栈清空为止，类似使用延时为0的setTimeout方法。
+    //对于执行开销大的计算和无阻塞UI线程的HTML渲染时候非常有用。
+    //如果传递arguments参数，当函数function执行时， arguments 会作为参数传入。
+
+    _.defer(function(){ alert('deferred'); });
+
+    //Returns from the function before the alert runs.
+
+</script>
+</body>
+</html>

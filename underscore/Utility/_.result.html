@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.result</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.result(object, property)
+
+    //如果对象 object 中的属性 property 是函数, 则调用它, 否则, 返回它。
+
+    var object = {cheese: 'crumpets', stuff: function(){ return 'nonsense'; }};
+
+    var rst1 = _.result(object, 'cheese');
+
+    console.log(rst1);  //=>"crumpets"
+
+    var rst2 = _.result(object, 'stuff');
+
+    console.log(rst2);  //=>"nonsense"
+
+</script>
+</body>
+</html>

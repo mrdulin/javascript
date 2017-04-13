@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.bindAll</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+
+<button id="btn">bindAll</button>
+<script>
+    //_.bindAll(object, *methodNames)
+
+    //把methodNames参数指定的一些方法绑定到object上，这些方法就会在对象的上下文环境中执行。
+    //绑定函数用作事件处理函数时非常便利，否则函数被调用时this一点用也没有。methodNames参数是必须的。
+
+    var buttonView = {
+        label  : 'underscore',
+        onClick: function(){
+            alert('clicked: ' + this.label);
+        },
+        onHover: function(){
+            console.log('hovering: ' + this.label);
+        }
+    };
+
+    _.bindAll(buttonView, 'onClick', 'onHover');
+
+    var btn = document.getElementById('btn');
+
+    btn.onclick = buttonView.onClick;
+    btn.onmouseover = buttonView.onHover;
+
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.partition</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.partition(array, predicate)
+
+    //拆分一个数组（array）为两个数组：  第一个数组其元素都满足predicate迭代函数， 而第二个的所有元素均不能满足predicate迭代函数。
+
+    var partArr = _.partition([0, 1, 2, 3, 4, 5], isOdd);
+
+    function isOdd(num, index, self) {
+        console.log(num, index, self);
+
+        return num % 2 !== 0;
+    }
+
+    console.log(partArr);   //=> [[1, 3, 5], [0, 2, 4]]
+
+</script>
+</body>
+</html>

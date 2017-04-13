@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.zip</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.zip(*arrays)
+    //将每个arrays中相应位置的值合并在一起。
+    //在合并分开保存的数据时很有用. 如果你用来处理矩阵嵌套数组时, _.zip.apply 可以做类似的效果。
+
+    var arr = _.zip(['moe', 'larry', 'curly'], [30, 40, 50], [true, false, false]);
+
+    console.log(arr); //=>[["moe", 30, true], ["larry", 40, false], ["curly", 50, false]]
+
+</script>
+</body>
+</html>

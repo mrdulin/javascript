@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.template</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.template(templateString, [settings])
+
+    //将 JavaScript 模板编译为可以用于页面呈现的函数, 对于通过JSON数据源生成复杂的HTML并呈现出来的操作非常有用。
+    //模板函数可以使用 <%= … %>插入变量, 也可以用<% … %>执行任意的 JavaScript 代码。
+    //如果您希望插入一个值, 并让其进行HTML转义,请使用<%- … %>。
+    //当你要给模板函数赋值的时候，可以传递一个含有与模板对应属性的data对象 。
+    //如果您要写一个一次性的, 您可以传对象 data 作为第二个参数给模板 template 来直接呈现, 这样页面会立即呈现而不是返回一个模板函数.
+    //参数 settings 是一个哈希表包含任何可以覆盖的设置 _.templateSettings.
+
+
+    var compiled = _.template("hello: <%= name %>");
+
+    var result = compiled({name: 'moe'});
+
+    console.log(result);    //=>"hello: moe"
+
+    var tplCompiler = _.template("<b><%- value %></b>");
+
+    var tpl = tplCompiler({value: '<script>'});
+
+    console.log(tpl);   //=> "<b>&lt;script&gt;</b>"
+
+    //您也可以在JavaScript代码中使用 print. 有时候这会比使用 <%= ... %> 更方便.
+
+    var compiler = _.template("<% print('Hello ' + epithet); %>");
+
+    console.log(compiler({epithet: "stooge"})); //=>"Hello stooge"
+
+
+
+
+    //如果ERB式的分隔符您不喜欢, 您可以改变Underscore的模板设置, 使用别的符号来嵌入代码.
+    //定义一个 interpolate 正则表达式来逐字匹配 嵌入代码的语句, 如果想插入转义后的HTML代码
+    //则需要定义一个 escape 正则表达式来匹配, 还有一个 evaluate 正则表达式来匹配
+    //您想要直接一次性执行程序而不需要任何返回值的语句. 您可以定义或省略这三个的任意一个. 例如, 要执行 Mustache.js 类型的模板:
+
+    _.templateSettings = {
+        interpolate: /\{\{(.+?)\}\}/g
+    };
+
+    var template = _.template("Hello {{ name }}!");
+
+    console.log(template({name: "Mustache"}));  //=>"Hello Mustache!"
+
+    //默认的, template 通过 with 语句 来取得 data 所有的值. 当然, 您也可以在 variable 设置里指定一个变量名. 这样能显著提升模板的渲染速度.
+
+    var rst = _.template("Using 'with': <%= data.answer %>", {variable: 'data'})({answer: 'no'});
+
+    console.log(rst);   //=> "Using 'with': no"
+
+
+</script>
+</body>
+</html>

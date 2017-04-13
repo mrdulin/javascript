@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.memoize</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+
+<script>
+    //_.memoize(function, [hashFunction])
+
+    //Memoizes方法可以缓存某函数的计算结果。对于耗时较长的计算是很有帮助的。
+    //如果传递了 hashFunction 参数，就用 hashFunction 的返回值作为key存储函数的计算结果。
+    //hashFunction 默认使用function的第一个参数作为key。memoized值的缓存 可作为 返回函数的cache属性。
+
+    var fibonacci = _.memoize(function(n) {
+        return n < 2 ? n: fibonacci(n - 1) + fibonacci(n - 2);
+    });
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.invoke</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.invoke(list, methodName, *arguments)
+
+    //在list的每个元素上执行methodName方法。 任何传递给invoke的额外参数，invoke都会在调用methodName方法的时候传递给它。
+
+    var arr = _.invoke([[5, 1, 7], [3, 2, 1]], 'sort');
+
+    console.log(arr);   //=>[[1, 5, 7], [1, 2, 3]]
+
+
+</script>
+</body>
+</html>

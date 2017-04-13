@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.bind</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+
+<script>
+
+    //_.bind(function, object, *arguments)
+
+    //绑定函数 function 到对象 object 上, 也就是无论何时调用函数, 函数里的 this 都指向这个 object.
+    //任意可选参数 arguments 可以传递给函数 function , 可以填充函数所需要的参数, 这也被称为 partial application。
+    //注：partial application翻译成“部分应用”或者“偏函数应用”。
+    //partial application可以被描述为一个函数，它接受一定数目的参数，绑定值到一个或多个这些参数，并返回一个新的函数，这个返回函数只接受剩余未绑定值的参数。
+
+
+    var func = function(greeting){
+        return greeting + ': ' + this.name
+    };
+
+    func = _.bind(func, {name: 'moe'}, 'hi');
+
+    console.log(func());    //=>'hi: moe'
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.noConflict</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+    //_.noConflict()
+    //放弃Underscore 的控制变量"_"。返回Underscore 对象的引用。
+
+    var underscore = _.noConflict();
+
+    var arr = [1, 2, 3];
+
+    var firstElem = underscore.first(arr);
+
+    console.log(firstElem); //=> 1
+</script>
+</body>
+</html>

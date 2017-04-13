@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.contains用法</title>
+    <!--underscore ver 1.8.3-->
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+
+    //_.contains(list, value, [fromIndex])
+    //如果list包含指定的value则返回true（使用===检测）。如果list是数组，内部使用indexOf判断。使用fromIndex来给定开始检索的索引位置。
+
+    console.log('alias:', _.contains === _.includes); //=> true
+
+    var arr = [1, 2, 3];
+    var data = {
+        name: 'angular',
+        type: 'js'
+    };
+
+    var isContain = _.contains([1, 2, 3], 3);
+
+    var hasNg = _.includes(data, 'angular');
+
+    console.log(isContain);  //=> true
+    console.log(hasNg);  //=> true
+
+</script>
+</body>
+</html>

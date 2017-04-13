@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.some用法</title>
+    <!--underscore ver 1.8.3-->
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<script>
+
+    //_.some(list, [predicate], [context])
+    //如果list中有任何一个元素通过 predicate 的真值检测就返回true。一旦找到了符合条件的元素, 就直接中断对list的遍历。
+
+    console.log('alias:', _.some === _.any); //=> true
+
+    var hasTrue = _.some([true, 1, null, 'yes']);
+
+    console.log(hasTrue);  //=> true
+
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id='open'>open new window</button>
+    <button type="button" id='post'>post some message to new window</button>
+    <button type="button" id='close'>close window</button>
+    <script>
+        window.onload = init;
+
+        function init() {
+            var doc = document;
+            var dom_openBtn = doc.getElementById('open');
+            var dom_postBtn = doc.getElementById('post');
+            var dom_closeBtn = doc.getElementById('close');
+            var winRef;
+            
+            dom_openBtn.addEventListener('click', openNewWindow, false);
+            dom_postBtn.addEventListener('click', postData, false);
+            dom_closeBtn.addEventListener('click', closeWindow, false);
+
+            function openNewWindow(e) {
+                winRef = window.open('./other.html', 'other', 'resizable,scrollbars,status');
+            }
+
+            function postData(e) {
+                var data = {name: 'novaline', age: 26};
+                winRef.postMessage(JSON.stringify(data), '*');
+            }
+
+            function closeWindow(e) {
+                winRef.close();
+            }
+
+        }
+    </script>
+</body>
+</html>

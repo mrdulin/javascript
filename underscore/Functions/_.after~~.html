@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.after</title>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+
+<script>
+    //_.after(count, function)
+
+    //创建一个函数, 只有在运行了 count 次之后才有效果.
+    //在处理同组异步请求返回结果时, 如果你要确保同组里所有异步请求完成之后才 执行这个函数, 这将非常有用。
+
+    var renderNotes = _.after(notes.length, render);
+
+    _.each(notes, function(note) {
+        note.asyncSave({success: renderNotes});
+    });
+
+    //// renderNotes is run once, after all notes have saved.
+
+
+
+</script>
+</body>
+</html>
