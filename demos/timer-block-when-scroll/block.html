@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #timer{
+      position: fixed;
+      top: 50%;
+      z-index: 10;
+      color: red;
+      font-size: 20px;
+    }
+
+    .list > li {
+      height: 80px;
+    }
+
+    .list > li:not(:last-child) {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .block{
+      position: fixed;
+      top: 100px;
+      left: 0;
+      width: 50px;
+      height: 50px;
+      background-color: aqua;
+      animation: move 5s infinite;
+    }
+
+    @keyframes move {
+      from {
+        left: 0px;
+        background-color: aqua;
+      }
+      to {
+        left: 270px;
+        background-color: lightgreen;
+      }
+    }
+  </style>
+</head>
+<body>
+  <ul class='list'>
+    <li>angular</li>
+    <li>react</li>
+    <li>backbone</li>
+    <li>jquery</li>
+    <li>angular</li>
+    <li>react</li>
+    <li>backbone</li>
+    <li>jquery</li>
+    <li>angular</li>
+    <li>react</li>
+    <li>backbone</li>
+    <li>jquery</li>
+  </ul>
+  <div id='timer'></div>
+  <div class='block'></div>
+
+  <div id='timer-no-block'></div>
+  <script>
+    window.onload = init;
+    function init() {
+      var dom_timer = document.getElementById('timer');
+      updateTime(dom_timer);
+    }
+
+    //测试： body上滚动时，是否阻塞定时器，动画
+    //测试机型：iphone5s
+    //系统版本：ios8.1.2
+    //safari不阻塞，uc浏览器阻塞
+    //UIWebView阻塞，WkWebView不阻塞
+
+    //测试机型：ipod touch 5
+    //系统版本：ios9.3.5
+    //safari不阻塞,chrome56.0.2924.79不阻塞
+    //UIWebView阻塞，WkWebView不阻塞
+
+
+    //测试：当用户按了home键，将程序放到后台时，是否阻塞定时器，动画
+    //测试机型：iphone5s
+    //系统版本：ios8.1.2
+    //safari阻塞，uc浏览器
+
+    //机型：ipod touch 5
+    //系统版本：ios9.3.5
+    //safari阻塞，chrome阻塞
+
+    //所以做定时器组件的时候，要考虑到滚动和程序在后台运行时阻塞定时器的情况
+    function updateTime(el) {
+      var time = 0;
+      setInterval(function() {
+        time ++ ;
+        el.textContent = time;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

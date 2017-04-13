@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --recursive --reporter spec",
-    "test:doc": "mocha --recursive --reporter doc > test/reporter.html"
+    "test:doc": "mocha --recursive --reporter doc > test/reporter.html",
+    "start": "gulp webserver"
   },
   "repository": {
     "type": "git",
