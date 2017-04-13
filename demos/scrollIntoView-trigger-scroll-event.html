@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .container{
+      width: 320px;
+      height: 480px;
+      border: 1px solid #ddd;
+      overflow: scroll;
+    }
+
+    ul{
+      list-style: none;
+    }
+
+    .list > li{
+      height: 60px;
+    }
+
+    .list > li:not(:last-child) {
+      border-bottom: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <p>需求：点击按钮跳转到相应的锚点元素</p>
+
+  <h2>1. scrollIntoView会触发scroll滚动事件</h2>
+  <div class='container'>
+    <ul class='list' id='book-list'>
+      <li>react</li>
+      <li>angular</li>
+      <li>jquery</li>
+      <li>backbone</li>
+      <li>webpack</li>
+    </ul>
+    <hr>
+    <ul class='list' id='fruit-list'>
+      <li>苹果</li>
+      <li>香蕉</li>
+      <li>葡萄</li>
+      <li>龙眼</li>
+      <li></li>
+    </ul>
+  </div>
+  <button type="button" data-anchor-id='book-list'>jump to book list</button>
+  <button type="button" data-anchor-id='fruit-list'>jump to fruit list</button>
+
+  <hr>
+  <h2>2. 使用a标签的hash作为锚点，不会触发scroll滚动事件</h2>
+  <div class="container">
+    <ul class='list' id='books'>
+      <li>react</li>
+      <li>angular</li>
+      <li>jquery</li>
+      <li>backbone</li>
+      <li>webpack</li>
+    </ul>
+    <hr>
+    <ul class='list' id='fruits'>
+      <li>苹果</li>
+      <li>香蕉</li>
+      <li>葡萄</li>
+      <li>龙眼</li>
+      <li></li>
+    </ul>
+  </div>
+
+  <a href="#books">books</a>
+  <a href="#fruits">fruits</a>
+
+  <script>
+    window.onload = init;
+
+    function init() {
+      var doc = document;
+      var dom_container = doc.querySelector('.container');
+      var dom_btns = doc.querySelectorAll('button[data-anchor-id]');
+      dom_container.addEventListener('scroll', handleScroll, false);
+
+      for(var i = 0; i < dom_btns.length; i++){
+        var dom_btn = dom_btns[i];
+        dom_btn.addEventListener('click', handleClick, false);
+      }
+
+      function handleClick(e) {
+        var alignToTop = true;
+        var target = e.target;
+        var anchorId = target.dataset.anchorId;
+        var dom_list = doc.getElementById(anchorId);
+
+        //scrollIntoView会触发dom_list元素的父元素的dom_container的scroll滚动事件
+        //典型的案例是：几个tab，点击tab跳转到相应的锚点位置; 滚动时，当锚点出现在视口时，激活响应tab
+        //那么这时候就出现了，当点击tab时，其父元素scroll事件也会触发的问题，可能会有逻辑上的冲突。
+
+        //对于单页面应用，这里使用react-router2.x和3.x，当使用hashHistory时，a标签的锚点是与路由冲突的
+        //如果用scrollIntoView的话，就需要注意与scroll事件的冲突问题。
+        dom_list.scrollIntoView(alignToTop);
+      }
+
+      function handleScroll(e) {
+        console.log(e);
+      }
+    }
+  </script>
+</body>
+</html>
