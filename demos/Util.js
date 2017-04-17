@@ -1,6 +1,6 @@
 /**
  * @file 常用工具函数
- * @author dulin <novaline@qq.com> 
+ * @author dulin <novaline@qq.com>
  * @copyright dulin 2016
  */
 
@@ -15,8 +15,8 @@
          * 2.若使用场景是app，可以：
          *  Android 4.0以下WebP解析库 https://github.com/alexey-pelykh/webp-android-backport
          *  iOS WebP 解析库 https://github.com/carsonmcdonald/WebP-iOS-example
-         * 
-         * @returns {Boolean} 
+         *
+         * @returns {Boolean}
          */
         isSupportWebp: function () {
             function checkWebp() {
@@ -57,10 +57,10 @@
          * 支持单页面应用hash路由后面带有查询字符串的情况，类似这样的url
          * http://yao-h5.test.pajkdc.com/home.html?app=pajk#/yao-fillordercard/3?from=undefined&usableCoupon=1
          * hash为#/yao-fillordercard/3，hash前的查询字符串?app=pajk和hash后的查询字符串?from=undefined&usableCoupon=1都支持
-         * @example 
+         * @example
          * Util.getParameterByName('app', 'http://yao-h5.test.pajkdc.com/home.html?app=pajk#/yao-fillordercard/3?from=undefined&usableCoupon=1')
          * // return pajk
-         * 
+         *
          * window.location.href = 'http://yao-h5.test.pajkdc.com/home.html?app=pajk#/yao-fillordercard/3?from=undefined&usableCoupon=1';
          * Util.getParameterByName('usableCoupon');
          * // return 1
