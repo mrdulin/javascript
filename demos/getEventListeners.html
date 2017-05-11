@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>找到绑定到元素上的事件</title>
+</head>
+<body>
+  <button id='btn' type='button'>button</button>
+  <script>
+    window.onload = init;
+
+    function init() {
+      var doc = document;
+      var dom_btn = doc.getElementById('btn');
+
+      dom_btn.addEventListener('click', handleClick, false);
+
+      function handleClick(e) {
+        console.log(e);
+      }
+
+      //Uncaught ReferenceError: getEventListeners is not defined
+      //getEventListeners 不是window上的方法，而是chrome console提供的方法，只在console中有效，类似$0
+      //https://developers.google.com/web/tools/chrome-devtools/console/command-line-reference?utm_source=dcc&utm_medium=redirect&utm_campaign=2016q3#geteventlistenersobject
+      var dom_btn_events = getEventListeners(dom_btn);
+
+      console.log(dom_btn_events);
+    }
+  </script>
+</body>
+</html>

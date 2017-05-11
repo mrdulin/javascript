@@ -36,4 +36,3 @@ function insertElementToArrayByIndex(src, dest, rules) {
 }
 
 module.exports = insertElementToArrayByIndex;
-

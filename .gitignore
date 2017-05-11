@@ -50,6 +50,5 @@ crashlytics-build.properties
 
 
 node_modules/
-.vscode
+.vscode/
 .DS_*
-
