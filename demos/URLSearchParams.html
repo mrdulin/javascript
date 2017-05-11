@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>URLSearchParams</title>
+</head>
+<body>
+  <p id='support-tip'></p>
+  <p id='support-tip-v2'></p>
+  <hr>
+  <p>参考资料:</p>
+  <ul>
+    <li>
+      <a href="https://developers.google.com/web/updates/2016/01/urlsearchparams">Easy URL Manipulation with URLSearchParams</a>
+    </li>
+    <li><a href="https://googlechrome.github.io/samples/urlsearchparams">URLSearchParams Sample</a></li>
+    <li><a href="https://github.com/WebReflection/url-search-params">URLSearchParams polyfills</a></li>
+  </ul>
+
+  <script src="../node_modules/url-search-params/build/url-search-params.js"></script>
+  <script>
+    window.onload = init;
+
+    function init() {
+      var doc = document;
+      var dom_p = doc.getElementById('support-tip');
+      var dom_p_v2 = doc.getElementById('support-tip-v2');
+
+      if ('URLSearchParams' in window) {
+        dom_p.textContent = 'Browser supports URLSearchParams';
+      } else {
+        dom_p.textContent = 'Browser does not support URLSearchParams';
+      }
+
+      if ('searchParams' in HTMLAnchorElement.prototype) {
+        dom_p_v2.textContent = 'Browser support <a> links searchParams property';
+      } else {
+        dom_p_v2.textContent = 'Browser does not support <a> links searchParams property';
+      }
+
+      const url = new URL('https://github.com?q=react+angular&page=1&pageSize=10');
+      const searchParams = url.search;
+      console.log(searchParams);
+
+      console.group('get, getAll');
+      const params = new URLSearchParams(searchParams);
+      console.log(params.get('q'));
+      console.log(params.getAll('q'));
+      console.groupEnd();
+
+      console.group('append and getAll and toString');
+      params.append('q', 'jquery');
+      console.log(params.getAll('q'));
+      console.log(params.toString());
+      console.groupEnd();
+
+      console.group('遍历params')
+      for(let p of params) {
+        console.log(p);
+      }
+      console.groupEnd();
+
+      console.group('delete and toString');
+      params.delete('q');
+      console.log(params.toString());
+      console.groupEnd();
+
+      console.group('<a> tag .searchParams property');
+      const a = document.createElement('a');
+      a.href = 'https://github.com?filter=api';
+      //https://github.com/WebReflection/url-search-params#about-htmlanchroelementprototypesearchparams
+      console.log(a.searchParams.get('filter'));
+      console.groupEnd();
+
+    }
+
+  </script>
+</body>
+</html>
