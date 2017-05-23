@@ -8,6 +8,7 @@ class Scheme{
     this._resolve = resolve;
     this._reject = reject;
   });
+  _callbacks = {};
 
   constructor() {
     this._registerCallback();
@@ -15,14 +16,32 @@ class Scheme{
 
   _registerCallback() {
     globalObj.jsOnMessage = (opt) => {
-      const handle = this._handleQueue.pop();
-      handle && handle(opt);
-      this._resolve(opt);
+      const cbObj = this._handleQueue.shift();
+      this._executeCallbacks(opt);
+      if(cbObj) {
+        const {cb: handle, once, name} = cbObj;
+        handle && handle(opt);
+        this._resolve(opt);
+      } else {
+        this._reject('The callback queue is empty');
+      }
     }
   }
 
-  pushCallbackToQueue(cb) {
-    this._handleQueue.push(cb);
+  registerCallback(name, cb) {
+    this._callbacks[name] = cb;
+  }
+
+  _executeCallbacks(opt) {
+    Object.keys(this._callbacks).forEach((eventName, idx) => {
+      const cb = this._callbacks[eventName];
+      opt._eventName = eventName;
+      cb && cb(opt);
+    });
+  }
+
+  pushCallbackToQueue(name, cb, once = true) {
+    this._handleQueue.push({name, cb, once});
   }
 
   invoke(businessName, content, onMessageCallback) {
@@ -33,9 +52,7 @@ class Scheme{
       callback = content;
     }
 
-    this.pushCallbackToQueue(callback);
-
-    // console.log('scheme invoke: ', content);
+    this.pushCallbackToQueue(businessName, callback);
 
     return this._promise;
   }
@@ -51,7 +68,6 @@ scheme.invoke('xiaomi', {name: 'MI4'}).then(opt => {
   console.log('xiaomi callback opt: ', opt);
 });
 
-
 setTimeout(() => {
   globalObj.jsOnMessage({code: 1});
 }, 1000);
@@ -59,3 +75,12 @@ setTimeout(() => {
 setTimeout(() => {
   globalObj.jsOnMessage({code: 0});
 }, 3000);
+
+
+scheme.registerCallback('location$city', (opt) => {
+  console.log(opt);
+});
+
+scheme.registerCallback('Ilikeher', opt => {
+  console.log(opt);
+})
