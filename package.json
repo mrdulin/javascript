@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha --recursive --reporter spec",
     "test:doc": "mocha --recursive --reporter doc > test/reporter.html",
+    "test:watch": "mocha -w --recursive",
     "start": "gulp webserver"
   },
   "repository": {
