@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>点击复制</h1>
+  <p id='content'>This text will be inserted into the clipboard.</p>
+  <button type="button" id='copy'>copy text</button>
+  <div>
+    <textarea rows="5" cols="50"></textarea>
+  </div>
+  <hr>
+  <h1>修改复制的文本</h1>
+  <p>手动复制这段文本，粘贴到下面的文本框中。</p>
+  <div>
+    <textarea cols="50" rows="5"></textarea>
+  </div>
+
+  <script>
+    window.onload = init;
+
+    function init() {
+      const doc = document;
+      const dom_copybtn = doc.getElementById('copy');
+      const dom_content= doc.getElementById('content');
+
+      dom_copybtn.addEventListener('click', handleCopy, false);
+
+      function handleCopy(e) {
+        const range = doc.createRange();
+        const selection = window.getSelection();
+
+        selection.removeAllRanges();
+
+        range.selectNodeContents(dom_content);
+
+        selection.addRange(range);
+
+        document.execCommand('copy');
+
+        selection.removeAllRanges();
+      }
+
+
+      doc.addEventListener('copy', (e) => {
+        console.log(e);
+        if(e.target.id === 'content') return;
+
+        e.preventDefault();
+
+        let selection = window.getSelection().toString();
+        console.log('selection', selection);
+
+        // let plainText = selection + '\n' + '商业转载请联系作者获得授权,非商业转载请注明出处。';
+        // e.clipboardData.setData('text/plain', plainText);
+
+        let htmlText = selection + '\n' + '<p style="color: lightblue;">商业转载请联系作者获得授权,非商业转载请注明出处。</p>';
+        e.clipboardData.setData('text', htmlText);
+
+      });
+
+    }
+  </script>
+</body>
+</html>
+
+
