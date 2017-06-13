@@ -1,4 +1,17 @@
-function jsonpWrapper() {
+;(function(name, definition) {
+
+  const amd = typeof define === 'function';
+  const cmd = typeof module !== 'undefined' && module.exports;
+
+  if(amd) {
+    define(definition);
+  } else if(cmd) {
+    module.exports = definition;
+  } else {
+    this[name] = definition;
+  }
+
+})('jsonpWrapper', function jsonpWrapper() {
   let counter = 0;
   const DEFAULT_CALLBACK_PARAMETER = 'callback';
   const CALLBACK_NAME = 'jsonpWrapper.callback';
@@ -28,4 +41,4 @@ function jsonpWrapper() {
       doc.body.appendChild(dom_script);
     });
   }
-}
+});
