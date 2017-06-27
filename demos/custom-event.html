@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+  window.onload = init;
+  function init() {
+    //使用CustomEvent构造函数创建自定义事件
+
+    let event = new CustomEvent('cat', {
+      detail: {
+        hazcheeseburger: true
+      }
+    });
+
+    window.addEventListener('cat', function(e) {
+      console.log(e.detail);
+    });
+
+    window.dispatchEvent(event);
+
+    //使用document.createEvent
+
+    let fxxkingEvent = document.createEvent('CustomEvent');
+    fxxkingEvent.initCustomEvent('fxxking', true, true, {name: 'life'});
+
+    document.addEventListener('fxxking', function(e) {
+      console.log(e.detail.name);
+    });
+
+    document.dispatchEvent(fxxkingEvent);
+  }
+</script>
+</body>
+</html>

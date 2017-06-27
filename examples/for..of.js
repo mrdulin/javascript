@@ -25,8 +25,8 @@ const nameLen = names.length;
 
 
 // for in
-// 缺点：数组的键名是数字，但是for...in循环是以字符串作为键名“0”、“1”、“2”等等。
-// for...in循环不仅遍历数字键名，还会遍历手动添加的其他键，甚至包括原型链上的键。
+// for...in循环遍历的是字符串的每个字母的索引，数组元素的索引。
+// for...in循环还会遍历对象上手动添加的其他key，甚至包括原型链上的键。
 // 某些情况下，for...in循环会以任意顺序遍历键名。
 
 // names.additional = 'aaaa';
@@ -43,6 +43,10 @@ for(let name of names) {
     }
 }
 
+for(let char of 'novaline') {
+  console.log(char)
+}
+
 
 function init(initNum) {
     return {plus: function(pn) {
@@ -53,10 +57,10 @@ function init(initNum) {
 }
 
 
-var a = init(5).plus(3).minus(6);
+let a = init(5).plus(3).minus(6);
 
-const init = initNum => ({plus: (pn) => ({minus: (mn) => {
+const init_v2 = initNum => ({plus: (pn) => ({minus: (mn) => {
   return initNum + pn - mn;
 }})});
 
-let b = init(5).plus(3).minus(6);
+let b = init_v2(5).plus(3).minus(6);
