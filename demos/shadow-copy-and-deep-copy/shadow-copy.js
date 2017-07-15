@@ -1,3 +1,4 @@
+require('core-js/fn/object/values');
 //浅拷贝
 
 function arrClone(arr) {

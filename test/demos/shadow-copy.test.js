@@ -91,6 +91,16 @@ describe('shadow copy - array', () => {
 
     });
 
+    it('t-2， 数组中含有引用类型数据时，浅拷贝前后数组中引用类型数据的引用相同', () => {
+
+      const a = [{ name: 'novaline' }, { name: 'angular' }];
+      const b = sc.arrClone3(a);
+
+      expect(b).to.not.equal(a);
+      expect(b[0]).to.be.eql({ name: 'novaline' });
+      expect(b[0]).to.be.equal(a[0]);
+    });
+
   });
 
 });
