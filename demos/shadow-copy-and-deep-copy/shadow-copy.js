@@ -8,6 +8,10 @@ function arrClone2(arr) {
   return arr.concat();
 }
 
+function arrClone3(arr) {
+  return Object.values(arr);
+}
+
 function _isArray(source) {
   return Object.prototype.toString.call(source) === '[object Array]';
 }
@@ -41,6 +45,7 @@ function shadowClone2(source) {
 module.exports = {
   arrClone,
   arrClone2,
+  arrClone3,
   shadowClone,
   shadowClone2
 };

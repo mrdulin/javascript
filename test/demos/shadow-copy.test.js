@@ -79,6 +79,20 @@ describe('shadow copy - array', () => {
 
   });
 
+  describe('Object.values', () => {
+
+    it('t-1', () => {
+
+      const a = [1, 2, 3];
+      const b = sc.arrClone3(a);
+
+      expect(b).to.not.equal(a);
+      expect(b).to.be.eql([1, 2, 3]);
+
+    });
+
+  });
+
 });
 
 describe('shadow copy - array and object', () => {
@@ -101,10 +115,10 @@ describe('shadow copy - array and object', () => {
 
     it('t-2, should be return a shadow copy of an object', () => {
 
-      const a = {name: 'emilie', age: 26, books: ['react', 'angular', 'jquery']};
+      const a = { name: 'emilie', age: 26, books: ['react', 'angular', 'jquery'] };
       const b = sc.shadowClone(a);
 
-      expect(b).to.be.eql({name: 'emilie', age: 26, books: ['react', 'angular', 'jquery']});
+      expect(b).to.be.eql({ name: 'emilie', age: 26, books: ['react', 'angular', 'jquery'] });
       expect(b).to.not.equal(a);
 
       expect(b.books).to.be.equal(a.books);
@@ -136,10 +150,10 @@ describe('shadow copy - array and object', () => {
 
     it('t-2, should be return a shadow copy of an object', () => {
 
-      const a = {name: 'emilie', age: 26, books: ['react', 'angular', 'jquery']};
+      const a = { name: 'emilie', age: 26, books: ['react', 'angular', 'jquery'] };
       const b = sc.shadowClone2(a);
 
-      expect(b).to.be.eql({name: 'emilie', age: 26, books: ['react', 'angular', 'jquery']});
+      expect(b).to.be.eql({ name: 'emilie', age: 26, books: ['react', 'angular', 'jquery'] });
       expect(b).to.not.equal(a);
 
       expect(b.books).to.be.equal(a.books);
