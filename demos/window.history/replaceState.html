@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <p>window.history.replaceState</p>
+  <button type="button" onclick='pushState()'>pushState</button>
+  <button type="button" onclick='replaceState()'>replaceState</button>
+  <button type="button" onclick='back()'>back</button>
+  <button type="button" onclick='go()'>go(2)</button>
+
+  <button type="button" onclick='replaceStateAndNavigate()'>replaceStateAndNavigate</button>
+  <button type="button" onclick='replace()'>replace</button>
+  <script>
+    const names = ['angular.html', 'react.html', 'rxjs.html'];
+
+    function pushState() {
+      const name = names.pop();
+      if(!name) return;
+      history.pushState(null, null, name);
+    }
+    function replaceState() {
+      history.replaceState(null, null, 'nodejs.html');
+    }
+
+    function back() {
+      history.back();
+    }
+
+    function go() {
+      history.go(2);
+    }
+
+    // replaceStateAndNavigate方法和replace方法效果一样，都不会记录history
+    function replaceStateAndNavigate() {
+      history.replaceState(null, null, 'nodejs.html');
+      window.location.href = './nodejs.html';
+    }
+
+    function replace() {
+      window.location.replace('./nodejs.html');
+    }
+
+    window.addEventListener('popstate', function (e) {
+      console.log('popstate');
+    })
+  </script>
+</body>
+
+</html>

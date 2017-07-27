@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <p>window.history.pushState</p>
+  <button type="button" onclick='pushState()'>pushState</button>
+  <button type="button" onclick='pushStateCrossDomain()'>pushStateCrossDomain</button>
+  <button type="button" onclick='pushStateWithHash()'>pushStateWithHash</button>
+
+
+  <script>
+    function pushState() {
+      const state = { foo: 'bar' };
+      history.pushState(state, null, '2.html');
+    }
+
+    function pushStateCrossDomain() {
+      history.pushState(null, null, 'https://github.com');
+    }
+
+    function pushStateWithHash() {
+      const hash = '#/foo';
+      history.pushState(null, null, hash);
+    }
+
+    window.addEventListener('hashchange', function (e) {
+      console.log(e);
+    })
+
+    window.addEventListener('popstate', function (e) {
+      // https://stackoverflow.com/questions/7860960/popstate-returns-event-state-is-undefined
+      const state = e.state;
+      console.log(e, state);
+    })
+  </script>
+</body>
+
+</html>
