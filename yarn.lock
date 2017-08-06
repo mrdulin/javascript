@@ -3460,6 +3460,10 @@ object.defaults@^1.1.0:
     for-own "^1.0.0"
     isobject "^3.0.0"
 
+object.observe@^0.2.6:
+  version "0.2.6"
+  resolved "http://registry.npm.taobao.org/object.observe/download/object.observe-0.2.6.tgz#7603c5dc91f05e7fe78ce2dcc45fc95dbb764f0b"
+
 object.omit@^2.0.0:
   version "2.0.1"
   resolved "http://registry.npm.taobao.org/object.omit/download/object.omit-2.0.1.tgz#1a9c744829f39dbb858c76ca3579ae2a54ebd1fa"

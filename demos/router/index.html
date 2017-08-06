@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>router</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="#">home</a></li>
+      <li><a href="#/about">about</a></li>
+      <li><a href="#/contact">contact</a></li>
+    </ul>
+  </nav>
+
+  <article id='view'>
+
+  </article>
+
+  <script type="text/html" id="home">
+    <h1>
+      <%= title %>
+    </h1>
+  </script>
+  <script type="text/html" id="about">
+    <h1>
+      <%= title %>
+    </h1>
+  </script>
+  <script type="text/html" id="contact">
+    <h1>
+      <%= title %>
+    </h1>
+  </script>
+
+  <script src="../../node_modules/object.observe/dist/object-observe.js"></script>
+  <script src="./tmpl.js"></script>
+  <script src="./index.js"></script>
+</body>
+
+</html>
