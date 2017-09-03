@@ -1,27 +1,14 @@
 # Learn JavaScript in winter.
 
-__TODO__
-
-- [ ] JavaScript ServiceWorker API
-- [x] 不带协议的url地址: `//xxx.com/123.jpg`
-- [ ] https域名不能访问http域名资源，http可以访问https
-- [ ] 单点登录，多点登录
-- [ ] JavaScript变量命名规范，例如dom元素如何命名
-
 _依赖及环境说明:_
 
 * `node`: `v6.2.0`
-
 * `npm`: `v3.8.9`
-
-* 依赖都为本地安装，不是全局安装
 
 _ES7特性示例:_
 
 * `Object.observe` - Obsolete
-
 * `async await`
-
 
 _babel-cli命令解释:_
 
