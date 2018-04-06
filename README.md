@@ -1,4 +1,4 @@
-# Learn JavaScript in winter.
+# web development season 1
 
 _依赖及环境说明:_
 
@@ -6,9 +6,6 @@ _依赖及环境说明:_
 * `npm`: `v3.8.9`
 
 _ES7特性示例:_
-
-* `Object.observe` - Obsolete
-* `async await`
 
 _babel-cli命令解释:_
 
