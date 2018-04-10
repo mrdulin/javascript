@@ -1,16 +1,13 @@
 {
-  "name": "JavaScript-Playgroud",
+  "name": "web-development-season-1",
   "version": "1.0.0",
   "description": "Learn JavaScript in winter.",
-  "main": "index.js",
   "scripts": {
-    "test": "mocha --recursive --reporter spec",
+    "test": "mocha --recursive --reporter spec demos/**/*.{test,spec}.js",
     "test:doc": "mocha --recursive --reporter doc > test/reporter.html",
     "test:watch": "mocha -w --recursive",
     "start": "gulp webserver"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.16.0",
@@ -22,7 +19,9 @@
     "babelify": "^7.3.0",
     "browserify": "^14.4.0",
     "chai": "^3.5.0",
-    "eslint": "^4.2.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-cli": "^1.2.2",

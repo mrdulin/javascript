@@ -1,55 +1,70 @@
-    <section class="suite">
-      <h1>configSetup</h1>
-      <dl>
-        <dt>多次调用，只需要穿参进去，即可得到配置</dt>
-        <dd><pre><code>var config1 = configSetup(true);
+<section class="suite">
+  <h1>configSetup</h1>
+  <dl>
+    <dt>多次调用，只需要穿参进去，即可得到配置</dt>
+    <dd>
+      <pre><code>var config1 = configSetup(true);
         var config2 = configSetup(false);
         expect(config1).to.equal('closure');
-        expect(config2).to.equal('mocha and chai');</code></pre></dd>
-      </dl>
-    </section>
-    <section class="suite">
-      <h1>getUniqueArray</h1>
-      <dl>
-        <dt>元素全部是Number类型的数组，应该返回去除数组中重复的元素后的数组</dt>
-        <dd><pre><code>var numArray = [2, 2, 3, 6, 7, 7, 7, 7, 8, 9];
-        expect(getUniqueArray(numArray)).to.eql([2, 3, 6, 7, 8, 9]);</code></pre></dd>
-        <dt>元素包含Number类型和String类型的数组, 应该返回去除数组中重复的元素后的数组</dt>
-        <dd><pre><code>var arr = [1, 1, '1', '1', 5, '6', '3', '5'];
+        expect(config2).to.equal('mocha and chai');</code></pre>
+    </dd>
+  </dl>
+</section>
+<section class="suite">
+  <h1>getUniqueArray</h1>
+  <dl>
+    <dt>元素全部是Number类型的数组，应该返回去除数组中重复的元素后的数组</dt>
+    <dd>
+      <pre><code>var numArray = [2, 2, 3, 6, 7, 7, 7, 7, 8, 9];
+        expect(getUniqueArray(numArray)).to.eql([2, 3, 6, 7, 8, 9]);</code></pre>
+    </dd>
+    <dt>元素包含Number类型和String类型的数组, 应该返回去除数组中重复的元素后的数组</dt>
+    <dd>
+      <pre><code>var arr = [1, 1, '1', '1', 5, '6', '3', '5'];
         var result = getUniqueArray(arr);
-        expect(result).to.eql([1, '1', 5, '6', '3', '5']);</code></pre></dd>
-        <dt>元素包含null和undefined类型的数组, 应该返回去除数组中重复的元素后的数组</dt>
-        <dd><pre><code>var arr = [null, null, 1, undefined, undefined];
+        expect(result).to.eql([1, '1', 5, '6', '3', '5']);</code></pre>
+    </dd>
+    <dt>元素包含null和undefined类型的数组, 应该返回去除数组中重复的元素后的数组</dt>
+    <dd>
+      <pre><code>var arr = [null, null, 1, undefined, undefined];
         var result = getUniqueArray(arr);
-        expect(result).to.eql([null, 1, undefined]);</code></pre></dd>
-        <dt class="error">元素包含NaN、null、undefined类型的数组, 应该返回去除数组中重复的元素后的数组</dt>
-        <dd class="error"><pre><code>var arr = [NaN, null, NaN, null, undefined, 1, '2', undefined];
+        expect(result).to.eql([null, 1, undefined]);</code></pre>
+    </dd>
+    <dt class="error">元素包含NaN、null、undefined类型的数组, 应该返回去除数组中重复的元素后的数组</dt>
+    <dd class="error">
+      <pre><code>var arr = [NaN, null, NaN, null, undefined, 1, '2', undefined];
         var result = getUniqueArray(arr);
-        expect(result).to.eql([NaN, null, undefined, 1, '2']);</code></pre></dd>
-        <dd class="error">AssertionError: expected [ null, undefined, 1, '2' ] to deeply equal [ NaN, null, undefined, 1, '2' ]</dd>
-      </dl>
-    </section>
-    <section class="suite">
-      <h1>getMaxOfArray</h1>
-      <dl>
-        <dt>返回数组中的最大值</dt>
-        <dd><pre><code>var numArray = [2, 2, 3, 6, 7, 7, 7, 7, 8, 9];
-expect(getMaxOfArray(numArray)).to.be.equal(9);</code></pre></dd>
-      </dl>
-    </section>
-    <section class="suite">
-      <h1>getMaxOfArrayBySpread</h1>
-      <dl>
-        <dt>返回数组中的最大值</dt>
-        <dd><pre><code>var numArray = [2, 2, 3, 6, 7, 7, 7, 7, 8, 9];
-expect(getMaxOfArrayBySpread(numArray)).to.be.equal(9);</code></pre></dd>
-      </dl>
-    </section>
-    <section class="suite">
-      <h1>getElementCountOfArray</h1>
-      <dl>
-        <dt>返回的结果中包含数组中每个元素的出现次数</dt>
-        <dd><pre><code>var numArray = [2, 2, 3, 6, 7, 7, 7, 7, 8, 9];
+        expect(result).to.eql([NaN, null, undefined, 1, '2']);</code></pre>
+    </dd>
+    <dd class="error">AssertionError: expected [ null, undefined, 1, '2' ] to deeply equal [ NaN, null, undefined, 1, '2' ]</dd>
+  </dl>
+</section>
+<section class="suite">
+  <h1>getMaxOfArray</h1>
+  <dl>
+    <dt>返回数组中的最大值</dt>
+    <dd>
+      <pre><code>var numArray = [2, 2, 3, 6, 7, 7, 7, 7, 8, 9];
+expect(getMaxOfArray(numArray)).to.be.equal(9);</code></pre>
+    </dd>
+  </dl>
+</section>
+<section class="suite">
+  <h1>getMaxOfArrayBySpread</h1>
+  <dl>
+    <dt>返回数组中的最大值</dt>
+    <dd>
+      <pre><code>var numArray = [2, 2, 3, 6, 7, 7, 7, 7, 8, 9];
+expect(getMaxOfArrayBySpread(numArray)).to.be.equal(9);</code></pre>
+    </dd>
+  </dl>
+</section>
+<section class="suite">
+  <h1>getElementCountOfArray</h1>
+  <dl>
+    <dt>返回的结果中包含数组中每个元素的出现次数</dt>
+    <dd>
+      <pre><code>var numArray = [2, 2, 3, 6, 7, 7, 7, 7, 8, 9];
 var result = {
     2: 2,
     3: 1,
@@ -58,45 +73,53 @@ var result = {
     8: 1,
     9: 1
 };
-expect(getElementCountOfArray(numArray)).to.eql(result);</code></pre></dd>
-      </dl>
-    </section>
+expect(getElementCountOfArray(numArray)).to.eql(result);</code></pre>
+    </dd>
+  </dl>
+</section>
+<section class="suite">
+  <h1>P</h1>
+  <dl>
     <section class="suite">
-      <h1>P</h1>
+      <h1>#P.all</h1>
       <dl>
-        <section class="suite">
-          <h1>#P.all</h1>
-          <dl>
-            <dt>传入P.all的参数是数组，并且数组中的元素都不是promise，在返回的promise.then的callback的参数是该数组</dt>
-            <dd><pre><code>var arr = [1, 2, 3, 4];
+        <dt>传入P.all的参数是数组，并且数组中的元素都不是promise，在返回的promise.then的callback的参数是该数组</dt>
+        <dd>
+          <pre><code>var arr = [1, 2, 3, 4];
             return P.all(arr).then(results =&gt; {
                 expect(results).to.eql([1, 2, 3, 4]);
-            });</code></pre></dd>
-            <dt>传入P.all的参数是数组，但包含有reject的元素, 在返回的promise.catch中捕获异常</dt>
-            <dd><pre><code>var test1 = [1, Promise.reject(new Error('Something bad happened!'))];
+            });</code></pre>
+        </dd>
+        <dt>传入P.all的参数是数组，但包含有reject的元素, 在返回的promise.catch中捕获异常</dt>
+        <dd>
+          <pre><code>var test1 = [1, Promise.reject(new Error('Something bad happened!'))];
             return Promise.all(test1).then(results =&gt; {
                 console.log(results);
             }).catch(e =&gt; {
                 expect(e).to.eql(new Error('Something bad happened!'));
-            });</code></pre></dd>
-          </dl>
-        </section>
+            });</code></pre>
+        </dd>
       </dl>
     </section>
-    <section class="suite">
-      <h1>quickSort</h1>
-      <dl>
-        <dt>给定一个元素全是Number类型的数组，应该返回一个数组，其元素按照从小到大的顺序排列。</dt>
-        <dd><pre><code>var arr = [1, 5, 7, 23, 656, 23, 567, 231, 2, 23];
+  </dl>
+</section>
+<section class="suite">
+  <h1>quickSort</h1>
+  <dl>
+    <dt>给定一个元素全是Number类型的数组，应该返回一个数组，其元素按照从小到大的顺序排列。</dt>
+    <dd>
+      <pre><code>var arr = [1, 5, 7, 23, 656, 23, 567, 231, 2, 23];
         var result = quickSort(arr);
-        expect(result).to.eql([1, 2, 5, 7, 23, 23, 23, 231, 567, 656]);</code></pre></dd>
-      </dl>
-    </section>
-    <section class="suite">
-      <h1>execAsyncSequence</h1>
-      <dl>
-        <dt>数组中的异步方法应该被按顺序执行</dt>
-        <dd><pre><code>const fnNames = ['a', 'b', 'c'];
+        expect(result).to.eql([1, 2, 5, 7, 23, 23, 23, 231, 567, 656]);</code></pre>
+    </dd>
+  </dl>
+</section>
+<section class="suite">
+  <h1>execAsyncSequence</h1>
+  <dl>
+    <dt>数组中的异步方法应该被按顺序执行</dt>
+    <dd>
+      <pre><code>const fnNames = ['a', 'b', 'c'];
 const asyncGenerator = (names = []) =&gt; names.map(name =&gt; {
     return cb =&gt; {
         setTimeout(() =&gt; {
@@ -106,7 +129,8 @@ const asyncGenerator = (names = []) =&gt; names.map(name =&gt; {
 });
 const asyncArrs = asyncGenerator(fnNames);
 execAsyncSequence(asyncArrs, (results) =&gt; {
-    
-});</code></pre></dd>
-      </dl>
-    </section>
+
+});</code></pre>
+    </dd>
+  </dl>
+</section>
