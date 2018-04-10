@@ -8,7 +8,7 @@ function clone(arr) {
 }
 
 function insertElementToArrayByIndex(src, dest, rules) {
-  //TODO 参数校验
+  // TODO 参数校验
   if (!src.length || !dest.length || !rules || !rules.length) return src.concat(dest);
 
   const idxArr = clone(rules).map(el => el - 1);
@@ -20,13 +20,13 @@ function insertElementToArrayByIndex(src, dest, rules) {
     const findIdx = idxArr.indexOf(idx) !== -1;
 
     if (findIdx) {
-      if(destClone.length) {
+      if (destClone.length) {
         acc[idx] = destClone.shift();
       } else {
         acc = acc.concat(srcClone);
       }
     } else {
-      if(srcClone.length) {
+      if (srcClone.length) {
         acc[idx] = srcClone.shift();
       }
     }

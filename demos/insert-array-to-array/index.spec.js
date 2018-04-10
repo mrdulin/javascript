@@ -1,4 +1,4 @@
-const insertArrayToArray = require('../../demos/insert-array-to-array');
+const insertArrayToArray = require('./');
 const { expect } = require('chai');
 
 describe('insertArrayToArray', () => {

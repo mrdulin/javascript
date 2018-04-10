@@ -1,4 +1,4 @@
-const bubbleSort = require('../../demos/bubble-sort');
+const bubbleSort = require('./');
 const { expect } = require('chai');
 
 describe('bubbleSort', () => {
@@ -7,7 +7,5 @@ describe('bubbleSort', () => {
     const result = bubbleSort(arr);
     expect(result).to.be.a('array');
     expect(result).to.eql([1, 2, 5, 12, 23, 334, 345, 545]);
-
-    expect(arr).to.equal(arr);
   });
 });

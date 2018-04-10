@@ -1,4 +1,4 @@
-const swap = require('./swap');
+const swap = require('../swap');
 /**
  * @desc 冒泡排序
  * @param arr
@@ -7,14 +7,14 @@ const swap = require('./swap');
 function bubbleSort(arr) {
   const len = arr.length;
   if (len <= 1) return arr;
-  const arrClone = arr.concat([]);
+  let arrClone = arr.concat([]);
 
   for (let i = 0; i < len; i += 1) {
     const rest = len - 1 - i;
 
     for (let j = 0; j < rest; j += 1) {
       if (arrClone[j] > arrClone[j + 1]) {
-        swap(arrClone, j, j + 1);
+        arrClone = swap(arrClone, j, j + 1);
       }
     }
   }
