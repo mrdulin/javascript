@@ -10,13 +10,13 @@ console.log(list2());
 console.log(list2(1, 2, 3));
 
 var obj = {
-  list: function() {
+  list: function () {
     return [].slice.call(arguments, 1);
   },
 
-  list2: function() {
-    return 'Hello world';
-  }
+  list2: function () {
+    return "Hello world";
+  },
 };
 
 //可以使用Function.prototype.bind制造偏函数。
