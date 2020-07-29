@@ -1,4 +1,4 @@
-const swap = require('../swap');
+const swap = require("../swap");
 /**
  * @desc 冒泡排序
  * @param arr

@@ -7,7 +7,7 @@ export default class Controller {
   initialize() {
     const _this = this;
     this.view.bindEvent({
-      onSubmit: _this.onSubmit.bind(_this)
+      onSubmit: _this.onSubmit.bind(_this),
     });
   }
 
@@ -24,17 +24,15 @@ export default class Controller {
     const _this = this;
     this.view.renderResults({
       datas: {
-        books
+        books,
       },
       events: {
-        onItemClick: _this.onItemClick
-      }
+        onItemClick: _this.onItemClick,
+      },
     });
   }
 
   onItemClick(e) {
     console.log(e);
   }
-
 }
-

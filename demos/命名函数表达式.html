@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        //观察Call Stack
-        var lightbulbAPI = {
-            toggle: function () {
-                debugger;   //toggle
-                //函数内部如果要再次调用该函数，只能通过lightbulbAPI.toggle()来调用
-            },
-            getState: function () {},
-            off: function () {},
-            on: function () {},
-            blink: function () {}
+      //观察Call Stack
+      var lightbulbAPI = {
+        toggle: function () {
+          debugger; //toggle
+          //函数内部如果要再次调用该函数，只能通过lightbulbAPI.toggle()来调用
+        },
+        getState: function () {},
+        off: function () {},
+        on: function () {},
+        blink: function () {},
+      };
+
+      lightbulbAPI.toggle(); //(anonymous function)
+
+      //命名函数表达式
+      var lightbulbAPI_v2 = {
+        toggle: function toggle() {
+          debugger; //toggle
+          //函数内部如果要再次调用该函数，只能通过lightbulbAPI.toggle()来调用
+        },
+        getState: function getState() {},
+        off: function off() {},
+        on: function on() {},
+        blink: function blink() {},
+      };
+
+      lightbulbAPI_v2.toggle(); //(anonymous function)
+
+      //命名函数表达式与函数声明的区别在于，命名函数表达式的函数名称仅能在函数内部被访问。
+      //在函数体之外，仍然只能通过被函数赋值的变量或形参来获得函数的引用。
+      var a = function x(j) {
+        j = j || 0;
+        if (j < 10) {
+          j++;
+          console.log(j);
+          x(j);
         }
-
-        lightbulbAPI.toggle();  //(anonymous function)
-
-        //命名函数表达式
-        var lightbulbAPI_v2 = {
-            toggle: function toggle() {
-                debugger;   //toggle
-                //函数内部如果要再次调用该函数，只能通过lightbulbAPI.toggle()来调用
-            },
-            getState: function getState() {},
-            off: function off() {},
-            on: function on() {},
-            blink: function blink() {}
-        }
-
-        lightbulbAPI_v2.toggle();   //(anonymous function)
-
-        //命名函数表达式与函数声明的区别在于，命名函数表达式的函数名称仅能在函数内部被访问。
-        //在函数体之外，仍然只能通过被函数赋值的变量或形参来获得函数的引用。
-        var a = function x(j) {
-            j = j || 0;
-            if(j < 10) {
-                j ++;
-                console.log(j);
-                x(j);
-            }
-        }
-        a();
-        x();    //Uncaught ReferenceError: x is not defined
+      };
+      a();
+      x(); //Uncaught ReferenceError: x is not defined
     </script>
-</body>
+  </body>
 </html>
