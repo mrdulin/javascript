@@ -1,7 +1,7 @@
 {
-  "name": "web-development-season-1",
+  "name": "web-development",
   "version": "1.0.0",
-  "description": "Learn JavaScript in winter.",
+  "description": "A dozen of examples for Web Development",
   "scripts": {
     "test": "mocha --recursive --reporter spec demos/**/*.{test,spec}.js",
     "test:doc": "mocha --recursive --reporter doc > test/reporter.html",
