@@ -1,13 +1,11 @@
 # web development season 1
 
-_依赖及环境说明:_
+## 依赖及环境说明:
 
 - `node`: `v6.2.0`
 - `npm`: `v3.8.9`
 
-_ES7 特性示例:_
-
-_babel-cli 命令解释:_
+## babel-cli 命令解释:
 
 - `babel script.js` 编译`script.js`文件到标准输出`stdout`，编译后的代码输出在终端中，以`async_await.js`文件为例
 
@@ -23,7 +21,7 @@ _babel-cli 命令解释:_
 
 - `babel script.js --out-file --watch script-compiled.js` 使用`--watch`或者`-w`, 每当修改文件时编译
 
-_其他:_
+## 其他
 
 **执行未编译的文件，可以使用`babel-node`（不要在生产环境使用`babel-node`）**
 
@@ -35,7 +33,7 @@ _其他:_
 ../node_modules/.bin/babel-node async_await.js
 ```
 
-**执行编译后的文件**
+## 执行编译后的文件
 
 ```bash
 node async_await.compiled.js
@@ -77,7 +75,7 @@ require("babel-polyfill");
 
 Q: 如何合并两个不同的 github 仓库，并且保留历史提交记录
 
-```
+```bash
 cd path/to/project-b
 git remote add project-a path/to/project-a
 git fetch project-a
@@ -89,6 +87,6 @@ git remote remove project-a
 
 start https server:
 
-```
+```json
 "start": "http-server ./examples -o -c-1 -S -C ./ssl/server.crt -K ./ssl/server.pem -p 2223"
 ```
