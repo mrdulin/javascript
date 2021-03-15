@@ -31,7 +31,6 @@ result
     console.log("promise catch error:", err);
   });
 
-//value map data
 const feedbackTypes = {
   perfect: "p",
   excellent: "e",
