@@ -1,11 +1,11 @@
 # web development season 1
 
-## 依赖及环境说明:
+## 依赖及环境说明
 
 - `node`: `v6.2.0`
 - `npm`: `v3.8.9`
 
-## babel-cli 命令解释:
+## babel-cli 命令解释
 
 - `babel script.js` 编译`script.js`文件到标准输出`stdout`，编译后的代码输出在终端中，以`async_await.js`文件为例
 
