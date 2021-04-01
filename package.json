@@ -7,8 +7,8 @@
     "test:doc": "mocha --recursive --reporter doc > test/reporter.html",
     "test:watch": "mocha -w --recursive",
     "start": "gulp webserver",
-    "server": "http-server ./examples -o -c-1 -p 2223",
-    "server2": "http-server ./examples -o -c-1 -p 2224"
+    "server": "http-server ./demos -o -c-1 -p 2223",
+    "server2": "http-server ./demos -o -c-1 -p 2224"
   },
   "license": "ISC",
   "devDependencies": {

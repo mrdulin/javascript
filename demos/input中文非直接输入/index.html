@@ -21,12 +21,13 @@
         inputElement.value = inputElement.value.replace(regex, '');
       }
 
-      $input.addEventListener('input', function (event) {
-        if (!inputLock) {
-          handleValue(event.target);
-          event.returnValue = false;
-        }
-      });
+      // $input.addEventListener('input', function (event) {
+      //   console.log('input')
+      //   if (!inputLock) {
+      //     handleValue(event.target);
+      //     event.returnValue = false;
+      //   }
+      // });
 
       $input.addEventListener('compositionstart', function () {
         console.log('compositionstart')
@@ -36,13 +37,13 @@
       $input.addEventListener('compositionend', function (event) {
         console.log('compositionend')
         inputLock = false;
-        handleValue(event.target);
+        // handleValue(event.target);
       });
 
       //https://developer.mozilla.org/zh-CN/docs/Web/Events/change
-      // $input.addEventListener('change', function (e) {
-      //   console.log('change');
-      // });
+      $input.addEventListener('change', function (e) {
+        console.log('change');
+      });
 
     }
   </script>

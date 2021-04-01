@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p><span>window.navigator.connection.type:</span><span id='type-info'></span></p>
+  <p><span>window.navigator.connection.effectiveType:</span><span id='effectiveType-info'></span></p>
+  <script>
+    window.addEventListener('load', () => {
+      const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      console.log(connection)
+      const typeInfo = document.getElementById('type-info')
+      typeInfo.textContent = connection.type;
+      const effectiveTypeInfo = document.getElementById('effectiveType-info');
+      effectiveTypeInfo.textContent = connection.effectiveType;
+    })
+  </script>
+</body>
+
+</html>
